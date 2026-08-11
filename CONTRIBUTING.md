@@ -15,4 +15,4 @@ Este repositório acompanha publicamente o desenvolvimento do NIKKE PT-BR. O plu
 - Credenciais, tokens, IDs de conta, logs pessoais ou dados de terceiros.
 - Builds privadas, links para pacotes fechados ou conteúdo fora do escopo de localização.
 
-Use Issues para propostas. Pull requests não alteram o repositório sem análise e aceite explícito de `@kacksdev`; a branch principal é protegida e Kacks mantém a decisão final sobre o projeto.
+Use Issues para propostas. Pull requests não alteram o repositório sem minha análise e meu aceite explícito como `@kacksdev`; a branch principal é protegida e mantenho a decisão final sobre o projeto.

@@ -113,11 +113,11 @@ O catálogo só será considerado completo quando cobertura textual, contexto e 
 
 ## 06 / AUTORIA E FERRAMENTAS DE APOIO
 
-**NIKKE PT-BR é um projeto criado, dirigido e mantido por Kacks.** A definição do escopo, as decisões editoriais, a arquitetura final, os testes, o controle de qualidade e a publicação pertencem ao responsável pelo projeto.
+**NIKKE PT-BR é um projeto criado, dirigido e mantido por mim.** A definição do escopo, as decisões editoriais, a arquitetura final, os testes, o controle de qualidade e a publicação permanecem sob minha responsabilidade.
 
-O **OpenAI Codex** é utilizado como ferramenta auxiliar para acelerar documentação, organização técnica, desenvolvimento, tradução assistida e auditorias. Nesta fase, ele apoiou somente a preparação do projeto: **nenhum texto de NIKKE foi extraído ou traduzido ainda**.
+O **OpenAI Codex** integra o fluxo como ferramenta auxiliar para acelerar documentação, organização técnica, desenvolvimento, tradução assistida e auditorias. Nesta fase, ele auxiliou somente na preparação técnica e documental do projeto: **nenhum texto de NIKKE foi extraído ou traduzido ainda**.
 
-Quando a localização começar, a origem das traduções, o estágio de revisão e as métricas do catálogo serão registrados com clareza. Codex auxilia a execução; a direção, a validação e a responsabilidade pelo mod permanecem com Kacks. Consulte [Autoria e processo](./docs/AUTORIA-E-PROCESSO.md).
+Quando a localização começar, o desenvolvimento seguirá de forma colaborativa: definirei os requisitos, validarei o comportamento no cliente e aprovarei os resultados; o Codex apoiará a execução técnica e editorial em escala. A origem das traduções, o estágio de revisão e as métricas do catálogo serão registrados com clareza. Consulte [Autoria e processo](./docs/AUTORIA-E-PROCESSO.md).
 
 ## 07 / PUBLICAÇÃO
 

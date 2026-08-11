@@ -2,7 +2,7 @@
 
 ## Responsável pelo projeto
 
-**Kacks é o criador, diretor e mantenedor do NIKKE PT-BR.** São responsabilidades do projeto:
+**Sou o criador, diretor e mantenedor do NIKKE PT-BR.** Permanecem sob minha responsabilidade:
 
 - definir escopo, prioridades e padrão de qualidade;
 - decidir arquitetura, ferramentas e forma de distribuição;
@@ -13,7 +13,7 @@
 
 ## OpenAI Codex como ferramenta auxiliar
 
-Codex integra o fluxo de produção para reduzir trabalho repetitivo e acelerar tarefas de grande volume. Seu uso planejado inclui:
+O **OpenAI Codex** integra o fluxo de produção como ferramenta auxiliar para reduzir trabalho repetitivo e acelerar tarefas de grande volume. Seu uso planejado inclui:
 
 - gerar a base inicial de tradução quando o catálogo existir;
 - apoiar análise contextual e consistência terminológica;
@@ -24,7 +24,7 @@ Codex integra o fluxo de produção para reduzir trabalho repetitivo e acelerar 
 
 ## Estado atual
 
-O mod ainda está em preparação técnica. **Nenhum texto do jogo foi extraído ou traduzido e nenhum plugin foi implementado.** Até aqui, Codex auxiliou a estruturar documentação e planejamento sob direção de Kacks.
+O mod ainda está em preparação técnica. **Nenhum texto do jogo foi extraído ou traduzido e nenhum plugin foi implementado.** Até aqui, o Codex auxiliou somente na estruturação da documentação e do planejamento, sob minha direção.
 
 Quando o catálogo começar a ser produzido, o repositório informará:
 
@@ -37,4 +37,4 @@ Quando o catálogo começar a ser produzido, o repositório informará:
 
 ## Princípio de atribuição
 
-O uso de uma ferramenta de IA será declarado sem atribuir a ela a autoria do projeto. Codex auxilia tradução, engenharia e auditoria; Kacks conduz, valida, mantém e publica o mod.
+Declaro o uso de uma ferramenta de IA sem atribuir a ela a autoria ou a direção do projeto. O Codex auxilia na tradução, na engenharia e nas auditorias; **eu conduzo, valido, mantenho e publico o mod**.
