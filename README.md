@@ -1,13 +1,13 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/workbench-dark.png" />
   <source media="(prefers-color-scheme: light)" srcset="./assets/workbench-light.png" />
-  <img src="./assets/workbench-light.png" alt="Mesa de produção técnica em desenho monocromático, com interfaces, código e anotações de localização" width="100%" />
+  <img src="./assets/workbench-light.png" alt="Mesa de produção técnica em desenho monocromático, com interfaces, código e anotações de tradução" width="100%" />
 </picture>
 
 <h1 align="center">GODDESS OF VICTORY: NIKKE PT-BR / PC</h1>
 
 <p align="center">
-  <strong>MOD DE LOCALIZAÇÃO / PLANEJAMENTO TÉCNICO / DISTRIBUIÇÃO FECHADA</strong>
+  <strong>MOD DE TRADUÇÃO / PLANEJAMENTO TÉCNICO / DISTRIBUIÇÃO FECHADA</strong>
 </p>
 
 <p align="center">
@@ -35,8 +35,8 @@
       </picture>
     </td>
     <td>
-      <strong>LOCALIZAÇÃO COMUNITÁRIA PT-BR POR MODDING</strong><br /><br />
-      Projeto para traduzir GODDESS OF VICTORY: NIKKE no PC por integração direta com o sistema de localização do cliente, seguindo o mesmo padrão de engenharia, catálogo externo e controle de qualidade aplicado ao Brown Dust 2 PT-BR.<br /><br />
+      <strong>TRADUÇÃO COMUNITÁRIA PT-BR POR MODDING</strong><br /><br />
+      Projeto para traduzir GODDESS OF VICTORY: NIKKE no PC por integração direta com o sistema de tradução do cliente, seguindo o mesmo padrão de engenharia, catálogo externo e controle de qualidade aplicado em outros projetos de tradução feitos por mim.<br /><br />
       O desenvolvimento ainda não começou: não existe plugin, catálogo traduzido, pacote de instalação ou build privada nesta fase.
     </td>
   </tr>
@@ -57,13 +57,13 @@ Este repositório apresenta o estado do projeto, a arquitetura planejada, as fer
 | Build jogável | Não existe |
 | Distribuição | Fechada até uma versão suficientemente estável |
 
-O primeiro marco será identificar no cliente instalado o backend Unity, o ponto central de localização, os formatos de texto, os placeholders e a cobertura de fonte. Com esses dados, a implementação definitiva será congelada e versionada.
+O primeiro marco será identificar no cliente instalado o backend Unity, o ponto central de ção, os formatos de texto, os placeholders e a cobertura de fonte. Com esses dados, a implementação definitiva será congelada e versionada.
 
 ## 03 / ARQUITETURA PLANEJADA
 
 <p align="center">
   <code>MAPEAR CLIENTE</code> →
-  <code>LOCALIZAR PIPELINE</code> →
+  <code>R PIPELINE</code> →
   <code>CRIAR PLUGIN</code> →
   <code>CARREGAR CATÁLOGO</code> →
   <code>COBRIR FONTES</code> →
@@ -72,10 +72,10 @@ O primeiro marco será identificar no cliente instalado o backend Unity, o ponto
   <code>EMPACOTAR</code>
 </p>
 
-A arquitetura-alvo é um mod de runtime semelhante ao Brown Dust 2 PT-BR:
+A arquitetura-alvo é um mod de runtime:
 
 1. **Plugin BepInEx em C#** carregado junto ao cliente de PC.
-2. **Hook no ponto central de localização**, antes de o texto chegar à interface ou às animações progressivas.
+2. **Hook no ponto central de ção**, antes de o texto chegar à interface ou às animações progressivas.
 3. **Catálogo PT-BR externo e versionado**, separado dos arquivos proprietários do jogo.
 4. **Preservação de IDs, tags, placeholders, variáveis e quebras funcionais**.
 5. **Cobertura dos caracteres do português** por fonte ou atlas compatível com a interface Unity/TextMeshPro.
@@ -98,7 +98,7 @@ O backend ainda será confirmado. Se o cliente usar IL2CPP, entram Cpp2IL e Il2C
 
 Essas ferramentas compõem a pilha prevista para o modding. A escolha entre componentes Mono e IL2CPP será feita assim que o backend do cliente for confirmado. Veja [Pilha de ferramentas](./docs/FERRAMENTAS.md).
 
-## 05 / ESCOPO DA LOCALIZAÇÃO
+## 05 / ESCOPO DA TRADUÇÃO
 
 | Conteúdo | Meta |
 | --- | --- |
@@ -117,7 +117,7 @@ O catálogo só será considerado completo quando cobertura textual, contexto e 
 
 O **OpenAI Codex** integra o fluxo como ferramenta auxiliar para acelerar documentação, organização técnica, desenvolvimento, tradução assistida e auditorias. Nesta fase, ele auxiliou somente na preparação técnica e documental do projeto: **nenhum texto de NIKKE foi extraído ou traduzido ainda**.
 
-Quando a localização começar, o desenvolvimento seguirá de forma colaborativa: definirei os requisitos, validarei o comportamento no cliente e aprovarei os resultados; o Codex apoiará a execução técnica e editorial em escala. A origem das traduções, o estágio de revisão e as métricas do catálogo serão registrados com clareza. Consulte [Autoria e processo](./docs/AUTORIA-E-PROCESSO.md).
+Quando a tradução começar, o desenvolvimento seguirá de forma colaborativa: definirei os requisitos, validarei o comportamento no cliente e aprovarei os resultados; o Codex apoiará a execução técnica e editorial em escala. A origem das traduções, o estágio de revisão e as métricas do catálogo serão registrados com clareza. Consulte [Autoria e processo](./docs/AUTORIA-E-PROCESSO.md).
 
 ## 07 / PUBLICAÇÃO
 
@@ -136,4 +136,4 @@ O avanço das fases pode ser acompanhado no [Roadmap](./docs/ROADMAP.md).
   <img src="./assets/ink-rule-light.svg" alt="" width="100%" />
 </picture>
 
-<p align="center"><code>KACKS / COMMUNITY LOCALIZATION / BRASIL</code></p>
+<p align="center"><code>KACKS / COMMUNITY TRANSLATION / BRASIL</code></p>
