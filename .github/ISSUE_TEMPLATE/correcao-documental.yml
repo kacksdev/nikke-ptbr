@@ -1,0 +1,26 @@
+name: Correção documental
+description: Sinalize uma afirmação incorreta ou pouco clara.
+title: "[DOC] "
+labels:
+  - documentation
+body:
+  - type: input
+    id: page
+    attributes:
+      label: Página ou seção
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Correção proposta
+      description: Explique a divergência e inclua fonte primária quando possível.
+    validations:
+      required: true
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Escopo
+      options:
+        - label: A solicitação é documental e não pede desenvolvimento ou distribuição do mod.
+          required: true
