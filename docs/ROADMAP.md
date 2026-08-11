@@ -1,56 +1,67 @@
-# Roadmap condicionado
+# Roadmap do NIKKE PT-BR
 
-Não há porcentagem de conclusão porque o projeto ainda não passou pelo requisito que permite começar o desenvolvimento.
-
-## Fase 0 — Pesquisa e autorização
+## Fase 0 — Preparação técnica
 
 **Estado: atual**
 
-- Publicar evidências técnicas sem expor dados pessoais ou conteúdo proprietário.
-- Documentar o contrato atual e os riscos de conta.
-- Solicitar esclarecimento ou permissão escrita ao suporte oficial.
-- Não executar extração, modificação, hook ou interceptação.
+- Definir arquitetura-alvo e ferramentas do projeto.
+- Preparar estrutura de catálogo, glossário e auditorias.
+- Organizar documentação e repositório público de progresso.
+- Manter implementação e builds fora do repositório público.
 
-**Saída necessária:** resposta oficial suficiente para definir uma rota permitida.
+## Fase 1 — Mapeamento do cliente
 
-## Fase 1 — Prova de viabilidade autorizada
+**Estado: pendente**
 
-**Estado: bloqueada**
+- Confirmar versão Unity e backend Mono ou IL2CPP.
+- Identificar assemblies, Addressables, fontes e TextMeshPro.
+- Localizar o método central que entrega texto à interface.
+- Mapear IDs, formatos, placeholders e conteúdo remoto/local.
 
-- Confirmar backend, formato de texto, fontes e limites de interface.
-- Criar protótipo mínimo, removível e sem distribuição de assets.
-- Medir impacto de desempenho e atualização.
+## Fase 2 — Protótipo do plugin
 
-## Fase 2 — Inventário textual
+**Estado: pendente**
 
-**Estado: bloqueada**
+- Inicializar BepInEx no cliente.
+- Implementar o hook mínimo de localização.
+- Carregar um catálogo externo de teste.
+- Validar substituição antes da renderização e do efeito progressivo.
+- Medir estabilidade e custo de execução.
 
-- Classificar narrativa, interface, combate, itens, personagens e eventos.
-- Mapear placeholders, tags, nomes próprios e termos protegidos.
-- Produzir contagens auditáveis.
+## Fase 3 — Catálogo e cobertura PT-BR
 
-## Fase 3 — Localização e QA
+**Estado: pendente**
 
-**Estado: bloqueada**
+- Inventariar todos os textos acessíveis.
+- Gerar a base PT-BR com auxílio do OpenAI Codex sob direção do projeto.
+- Construir glossário, estados editoriais e camadas de correção.
+- Preservar tags, variáveis, nomes próprios e marcadores.
+- Resolver glifos, fontes e limites de interface.
 
-- Criar glossário e guia de estilo.
-- Produzir rascunhos com OpenAI Codex e registrar autoria por IA.
-- Revisar contexto e testar fontes, cortes, escolhas e timing.
+## Fase 4 — Revisão e QA privado
 
-## Fase 4 — Integração privada
+**Estado: pendente**
 
-**Estado: bloqueada**
+- Revisar contexto por sistema, personagem e arco.
+- Auditar resíduos de idioma e inconsistências terminológicas.
+- Testar história, interface, combate, personagens, itens e eventos.
+- Medir crash, carregamento, memória e desempenho.
+- Validar atualização, reinstalação, remoção e rollback.
 
-- Instalação e remoção seguras.
-- Regressões, logs mínimos e compatibilidade declarada.
-- Nenhum risco conhecido à conta ou serviço.
+## Fase 5 — Candidato de lançamento
 
-## Fase 5 — Decisão de publicação
+**Estado: pendente**
 
-**Estado: bloqueada**
+- Congelar compatibilidade com uma versão específica do cliente.
+- Finalizar instalador ou procedimento de instalação.
+- Publicar problemas conhecidos e matriz de testes.
+- Gerar pacote mínimo e hashes de integridade.
 
-- Revisar novamente autorização, direitos e política.
-- Publicar somente código próprio e arquivos permitidos.
-- Documentar limitações, IA, versão do cliente e suporte.
+## Fase 6 — Versão 1.0.0
 
-Se a empresa negar autorização ou a rota exigir contorno de proteção, o projeto permanecerá apenas como pesquisa e não avançará.
+**Estado: pendente**
+
+- Cobertura textual e técnica aprovada.
+- Documentação completa para jogadores.
+- Compatibilidade e limitações declaradas.
+- Liberação decidida por Kacks quando o mod estiver pronto para a comunidade.
