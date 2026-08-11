@@ -33,7 +33,7 @@
 **Estado: pendente**
 
 - Inventariar todos os textos acessíveis.
-- Gerar a base PT-BR com auxílio do OpenAI Codex sob direção do projeto.
+- Gerar a base PT-BR com auxílio do OpenAI Codex sob minha direção.
 - Construir glossário, estados editoriais e camadas de correção.
 - Preservar tags, variáveis, nomes próprios e marcadores.
 - Resolver glifos, fontes e limites de interface.
@@ -64,4 +64,4 @@
 - Cobertura textual e técnica aprovada.
 - Documentação completa para jogadores.
 - Compatibilidade e limitações declaradas.
-- Liberação decidida por Kacks quando o mod estiver pronto para a comunidade.
+- Liberação decidida por mim quando o mod estiver pronto para a comunidade.
