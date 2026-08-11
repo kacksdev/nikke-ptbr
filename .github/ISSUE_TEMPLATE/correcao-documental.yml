@@ -14,7 +14,7 @@ body:
     id: problem
     attributes:
       label: Correção proposta
-      description: Explique a divergência e inclua fonte primária quando possível.
+      description: Explique a divergência e indique a correção de forma objetiva.
     validations:
       required: true
   - type: checkboxes
@@ -22,5 +22,5 @@ body:
     attributes:
       label: Escopo
       options:
-        - label: A solicitação é documental e não pede desenvolvimento ou distribuição do mod.
+        - label: A solicitação não inclui arquivos do jogo, builds privadas ou dados pessoais.
           required: true

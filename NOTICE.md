@@ -1,7 +1,7 @@
-# Aviso de direitos e pesquisa
+# Aviso do projeto
 
-GODDESS OF VICTORY: NIKKE, seus personagens, marcas, nomes e conteúdos pertencem aos respectivos titulares. Este estudo comunitário não é afiliado, patrocinado ou endossado pela SHIFT UP ou pelas demais empresas responsáveis pelo jogo.
+GODDESS OF VICTORY: NIKKE, seus personagens, marcas, nomes e conteúdos pertencem aos respectivos titulares. O NIKKE PT-BR é um projeto comunitário independente e não é afiliado, patrocinado ou endossado pelas empresas responsáveis pelo jogo.
 
-As imagens de identificação são interpretações monocromáticas usadas como referência visual do projeto. Nenhum recurso extraído do cliente, texto original integral ou arquivo do jogo é distribuído.
+As imagens de identificação são interpretações monocromáticas usadas na apresentação do projeto. Nenhum recurso extraído do cliente, texto original integral ou arquivo do jogo é distribuído neste repositório.
 
-Não há licença de mod porque ainda não existe mod neste repositório. A documentação pública não concede direitos sobre materiais das empresas e não anuncia uma versão jogável.
+O mod ainda não está presente no repositório público. Uma futura distribuição deverá conter somente código, catálogos e materiais produzidos pelo projeto ou permitidos para esse uso.

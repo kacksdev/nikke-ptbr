@@ -1,19 +1,19 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/workbench-dark.png" />
   <source media="(prefers-color-scheme: light)" srcset="./assets/workbench-light.png" />
-  <img src="./assets/workbench-light.png" alt="Mesa de pesquisa em desenho monocromático, com interfaces, código e anotações técnicas" width="100%" />
+  <img src="./assets/workbench-light.png" alt="Mesa de produção técnica em desenho monocromático, com interfaces, código e anotações de localização" width="100%" />
 </picture>
 
 <h1 align="center">GODDESS OF VICTORY: NIKKE PT-BR / PC</h1>
 
 <p align="center">
-  <strong>PESQUISA TÉCNICA PÚBLICA / MOD NÃO INICIADO / SEM DOWNLOAD</strong>
+  <strong>MOD DE LOCALIZAÇÃO / PLANEJAMENTO TÉCNICO / DISTRIBUIÇÃO FECHADA</strong>
 </p>
 
 <p align="center">
   <code>FASE 0</code>&nbsp;&nbsp;
-  <code>VIABILIDADE CONDICIONAL</code>&nbsp;&nbsp;
-  <code>RISCO CONTRATUAL ALTO</code>&nbsp;&nbsp;
+  <code>PREPARAÇÃO TÉCNICA</code>&nbsp;&nbsp;
+  <code>SEM BUILD</code>&nbsp;&nbsp;
   <code>PC</code>
 </p>
 
@@ -23,7 +23,7 @@
   <img src="./assets/ink-rule-light.svg" alt="" width="100%" />
 </picture>
 
-## 01 / ESTADO REAL DO PROJETO
+## 01 / O PROJETO
 
 <table>
   <tr>
@@ -35,81 +35,100 @@
       </picture>
     </td>
     <td>
-      <strong>AINDA NÃO EXISTE UM MOD DE TRADUÇÃO</strong><br /><br />
-      O trabalho atual é somente pesquisa de viabilidade para uma possível localização comunitária em português brasileiro no cliente de PC.<br /><br />
-      Este repositório não contém textos extraídos, tradução do jogo, código de injeção, DLLs, ferramentas de contorno, instaladores ou releases.
+      <strong>LOCALIZAÇÃO COMUNITÁRIA PT-BR POR MODDING</strong><br /><br />
+      Projeto para traduzir GODDESS OF VICTORY: NIKKE no PC por integração direta com o sistema de localização do cliente, seguindo o mesmo padrão de engenharia, catálogo externo e controle de qualidade aplicado ao Brown Dust 2 PT-BR.<br /><br />
+      O desenvolvimento ainda não começou: não existe plugin, catálogo traduzido, pacote de instalação ou build privada nesta fase.
     </td>
   </tr>
 </table>
 
-O botão **Code → Download ZIP** baixa apenas documentação e imagens deste estudo. Nenhuma versão jogável está escondida no repositório.
+Este repositório apresenta o estado do projeto, a arquitetura planejada, as ferramentas e o roadmap. **Ele não contém o mod nem arquivos do jogo.** O botão **Code → Download ZIP** baixa somente documentação e imagens.
 
-## 02 / CONCLUSÃO DE VIABILIDADE
+## 02 / ESTADO ATUAL
 
-| Dimensão | Conclusão atual |
+| Item | Estado |
 | --- | --- |
-| **Técnica** | **Condicional e não comprovada.** O cliente usa Unity e há evidência local de Addressables e catálogos com contêiner próprio `NKDB`; ainda não foi determinado onde todos os textos vivem nem qual integração seria segura. |
-| **Política e conta** | **Bloqueada para desenvolvimento prático.** O contrato atual proíbe programas de terceiros não autorizados, mods que interajam com o serviço, engenharia reversa, modificação, tradução e datamining, salvo exceções legais aplicáveis. |
-| **Distribuição** | **Não autorizada.** Nenhum mod, extração ou pacote será criado/publicado enquanto não houver permissão escrita ou esclarecimento oficial suficiente. |
+| Plataforma | **PC / Windows** |
+| Fase | **Preparação técnica** |
+| Arquitetura-alvo | Plugin Unity em runtime + catálogo PT-BR externo |
+| Catálogo de textos | Ainda não criado |
+| Tradução | Ainda não iniciada |
+| Plugin | Ainda não implementado |
+| Build jogável | Não existe |
+| Distribuição | Fechada até uma versão suficientemente estável |
 
-A rota recomendada é pedir autorização por escrito ao suporte indicado no contrato, **help@nikke-en.com**, antes de modificar o cliente, analisar recursos protegidos ou testar hooks em runtime.
+O primeiro marco será identificar no cliente instalado o backend Unity, o ponto central de localização, os formatos de texto, os placeholders e a cobertura de fonte. Com esses dados, a implementação definitiva será congelada e versionada.
 
-Leia a análise completa em [Viabilidade e limites](./docs/VIABILIDADE.md).
+## 03 / ARQUITETURA PLANEJADA
 
-## 03 / EVIDÊNCIAS PRELIMINARES
+<p align="center">
+  <code>MAPEAR CLIENTE</code> →
+  <code>LOCALIZAR PIPELINE</code> →
+  <code>CRIAR PLUGIN</code> →
+  <code>CARREGAR CATÁLOGO</code> →
+  <code>COBRIR FONTES</code> →
+  <code>AUDITAR</code> →
+  <code>TESTAR NO JOGO</code> →
+  <code>EMPACOTAR</code>
+</p>
 
-Levantamento local de 11 de agosto de 2026, sem descriptografar, alterar ou distribuir conteúdo:
+A arquitetura-alvo é um mod de runtime semelhante ao Brown Dust 2 PT-BR:
 
-- cliente baseado em **Unity**;
-- estrutura de cache do **Unity Addressables**;
-- catálogos com arquivos `.db` e acompanhantes `.nds`;
-- cabeçalho `NKDB`, indicando contêiner próprio em vez de JSON ou SQLite comuns;
-- idiomas oficiais exibidos na página de PC sem português brasileiro.
+1. **Plugin BepInEx em C#** carregado junto ao cliente de PC.
+2. **Hook no ponto central de localização**, antes de o texto chegar à interface ou às animações progressivas.
+3. **Catálogo PT-BR externo e versionado**, separado dos arquivos proprietários do jogo.
+4. **Preservação de IDs, tags, placeholders, variáveis e quebras funcionais**.
+5. **Cobertura dos caracteres do português** por fonte ou atlas compatível com a interface Unity/TextMeshPro.
+6. **Camadas editoriais auditáveis**, permitindo corrigir traduções sem reconstruir toda a base.
+7. **Testes de estabilidade, desempenho e compatibilidade** dentro do cliente antes de cada pacote.
 
-Esses sinais ajudam a mapear perguntas técnicas, mas não autorizam engenharia reversa e não provam que uma estratégia de mod funcionará.
+O backend ainda será confirmado. Se o cliente usar IL2CPP, entram Cpp2IL e Il2CppInterop; se usar Mono, o plugin utiliza a rota gerenciada correspondente. Consulte [Arquitetura do mod](./docs/ARQUITETURA.md).
 
-Fontes primárias: [cliente oficial de PC](https://nikke-en.com/download.html), [contrato atual em português](https://nikke-en.com/termsofservice/children/pt.html) e [documentação do Unity Addressables](https://docs.unity3d.com/Packages/com.unity.addressables@1.21/manual/build-content-catalogs.html).
+## 04 / FERRAMENTAS DO PROJETO
 
-## 04 / ROTAS ANALISADAS
+| Área | Ferramentas planejadas |
+| --- | --- |
+| Plugin e runtime | C#, .NET, BepInEx, HarmonyX |
+| Backend Unity | Cpp2IL e Il2CppInterop para IL2CPP; assemblies gerenciados para Mono |
+| Conteúdo Unity | Addressables, AssetRipper, UABEA, UnityPy |
+| Catálogo e automação | Python, PowerShell, JSON/JSONL, CSV, regex |
+| Interface e fontes | TextMeshPro, atlas de glifos, testes de largura e quebra |
+| Versionamento | Git, GitHub, camadas de substituição e hashes |
+| Qualidade | Auditores estruturais, logs, testes de regressão, perfil de desempenho e QA in-game |
 
-| Rota | Potencial | Risco atual | Decisão |
-| --- | --- | --- | --- |
-| Suporte oficial, autorização ou localização nativa | Melhor qualidade e menor risco | Depende da empresa | **Prioridade** |
-| Sobreposição externa com captura/OCR | Não altera bundles diretamente | Ainda é programa de terceiro e pode coletar informações da tela | **Não testar sem autorização** |
-| Leitura de catálogos e recursos Unity | Pode localizar tabelas e fontes | Contrato cita datamining e engenharia reversa | **Bloqueada** |
-| Substituição/reempacotamento de AssetBundles | Integração visual mais natural | Quebra por atualização, hash/CRC e política | **Bloqueada** |
-| Hook de runtime em Mono/IL2CPP | Tradução antes da renderização | Interage com processo e detecção de programas | **Bloqueada** |
-| Proxy ou interceptação de rede | Poderia observar conteúdo remoto | Interceptação e serviço são áreas expressamente sensíveis | **Rejeitada** |
-| Injeção em memória ou contorno de anti-cheat | Nenhuma necessidade legítima para este projeto | Segurança de conta e serviço | **Rejeitada** |
+Essas ferramentas compõem a pilha prevista para o modding. A escolha entre componentes Mono e IL2CPP será feita assim que o backend do cliente for confirmado. Veja [Pilha de ferramentas](./docs/FERRAMENTAS.md).
 
-Mais detalhes em [Rotas técnicas](./docs/ROTAS-TECNICAS.md).
+## 05 / ESCOPO DA LOCALIZAÇÃO
 
-## 05 / FERRAMENTAS CANDIDATAS
+| Conteúdo | Meta |
+| --- | --- |
+| História principal e eventos | Tradução contextual completa, preservando voz e intenção. |
+| Interface e sistemas | Menus, opções, avisos, recompensas e fluxos de jogo. |
+| Personagens | Perfis, episódios, diálogos, vínculos e terminologia individual. |
+| Combate | Habilidades, efeitos, equipamentos, buffs, debuffs e tutoriais. |
+| Itens e coleções | Nomes, descrições, categorias e textos de progressão. |
+| Fontes e layout | Acentos corretos, ausência de cortes e legibilidade em todas as resoluções suportadas. |
 
-Nenhuma ferramenta abaixo foi aplicada ao cliente. Esta é uma lista de avaliação para uso **somente se houver autorização**.
+O catálogo só será considerado completo quando cobertura textual, contexto e funcionamento técnico forem validados em conjunto.
 
-| Área | Candidatos | Finalidade possível |
-| --- | --- | --- |
-| Inventário | PowerShell, hashes, Process Monitor | Mapear arquivos e mudanças sem modificar o cliente. |
-| Unity e assets | AssetRipper, UABEA, UnityPy | Identificar bundles, TextAssets, fontes e tabelas. |
-| Backend | Cpp2IL, Il2CppInterop | Confirmar e compreender uma eventual build IL2CPP. |
-| Runtime | BepInEx, HarmonyX | Prototipar integração controlada caso seja permitida. |
-| Texto | Python, JSON/CSV, regex, glossário | Normalização, placeholders, terminologia e auditoria. |
-| Tradução | OpenAI Codex + revisão e QA | Rascunho assistido, análise contextual e automação. |
-| Validação | OCR, capturas, testes de layout e regressão | Conferir fontes, cortes, timing e consistência visual. |
+## 06 / AUTORIA E FERRAMENTAS DE APOIO
 
-O inventário completo, com links oficiais e limitações, está em [Ferramentas candidatas](./docs/FERRAMENTAS-CANDIDATAS.md).
+**NIKKE PT-BR é um projeto criado, dirigido e mantido por Kacks.** A definição do escopo, as decisões editoriais, a arquitetura final, os testes, o controle de qualidade e a publicação pertencem ao responsável pelo projeto.
 
-## 06 / TRANSPARÊNCIA
+O **OpenAI Codex** é utilizado como ferramenta auxiliar para acelerar documentação, organização técnica, desenvolvimento, tradução assistida e auditorias. Nesta fase, ele apoiou somente a preparação do projeto: **nenhum texto de NIKKE foi extraído ou traduzido ainda**.
 
-- Projeto para **PC**, comunitário, gratuito e sem monetização.
-- Nenhuma promessa de versão foi feita e não existe previsão de lançamento.
-- O uso futuro de IA será declarado: a ferramenta planejada é o [OpenAI Codex](https://developers.openai.com/codex/).
-- Não haverá publicação de arquivos proprietários, textos integrais do jogo, credenciais ou técnicas de contorno.
-- NIKKE, personagens, marcas e conteúdos pertencem aos respectivos titulares.
-- Este estudo não é afiliado, patrocinado ou endossado pela SHIFT UP ou pelas demais empresas responsáveis.
+Quando a localização começar, a origem das traduções, o estágio de revisão e as métricas do catálogo serão registrados com clareza. Codex auxilia a execução; a direção, a validação e a responsabilidade pelo mod permanecem com Kacks. Consulte [Autoria e processo](./docs/AUTORIA-E-PROCESSO.md).
 
-Consulte também o [Roadmap condicionado](./docs/ROADMAP.md) e a [Transparência sobre IA](./docs/TRANSPARENCIA-IA.md).
+## 07 / PUBLICAÇÃO
+
+- Projeto comunitário para **PC**, gratuito e sem monetização.
+- Progresso e documentação públicos; implementação e builds fechados durante o desenvolvimento.
+- Nenhum arquivo proprietário do cliente será incluído no repositório ou no pacote do mod.
+- Uma futura build deverá ter instalação, remoção, backup, compatibilidade e limitações documentadas.
+- NIKKE, personagens, nomes e marcas pertencem aos respectivos titulares.
+- O projeto não é afiliado, patrocinado ou endossado pelas empresas responsáveis pelo jogo.
+
+O avanço das fases pode ser acompanhado no [Roadmap](./docs/ROADMAP.md).
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/ink-rule-dark.svg" />
@@ -117,4 +136,4 @@ Consulte também o [Roadmap condicionado](./docs/ROADMAP.md) e a [Transparência
   <img src="./assets/ink-rule-light.svg" alt="" width="100%" />
 </picture>
 
-<p align="center"><code>KACKS / TECHNICAL RESEARCH / BRASIL</code></p>
+<p align="center"><code>KACKS / COMMUNITY LOCALIZATION / BRASIL</code></p>

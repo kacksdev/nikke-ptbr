@@ -1,5 +1,5 @@
 blank_issues_enabled: false
 contact_links:
-  - name: Viabilidade e limites
-    url: https://github.com/kacksdev/nikke-ptbr/blob/main/docs/VIABILIDADE.md
-    about: Consulte a conclusão e o bloqueio atual antes de perguntar por download.
+  - name: Estado e roadmap do mod
+    url: https://github.com/kacksdev/nikke-ptbr/blob/main/docs/ROADMAP.md
+    about: Consulte as fases antes de perguntar por uma build ou data de lançamento.
