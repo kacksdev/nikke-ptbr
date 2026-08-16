@@ -48,17 +48,22 @@ ZIP** baixa somente esta documentação e os recursos visuais do repositório.
 | Cliente analisado | **150.6.9**, Unity **2021.3.56f2**, IL2CPP, Windows |
 | Inventário | **75 contêineres**, **724.181** linhas lógicas, zero estrutura desconhecida |
 | Catálogo privado | **564.723** entradas e **427.345** unidades traduzíveis únicas |
-| Tradução importada | **941** unidades únicas em **11 lotes** privados |
+| Tradução importada | **1.141** unidades únicas em **13 lotes** privados |
 | Primeiro domínio | Pré-instalação e protocolo: **641/641 unidades (100%)** |
-| Interface de sistema | **300** unidades importadas; domínio ainda em andamento |
-| Cobertura integral | **0,22%** das unidades únicas traduzíveis |
+| Interface de sistema | **500** unidades importadas; domínio ainda em andamento |
+| Ocorrências cobertas | **3.751** no catálogo; **3.730** substituições na cópia isolada |
+| Construção isolada | **28** contêineres reabertos e validados; cliente intocado |
+| Cobertura integral | **0,27%** das unidades únicas traduzíveis |
 | Validação automática | **10 testes aprovados**, zero falha |
 | Build pública | **Não disponível** |
 
 Os arquivos traduzidos são reconstruídos e auditados apenas em cópias
-isoladas. Nenhum deles foi aplicado ao cliente instalado. A barreira atual é
-comprovar o papel dos sidecars de integridade e produzir instalação, atualização
-e restauração realmente reversíveis. Consulte o [status técnico](./docs/STATUS.md).
+isoladas. Nenhum deles foi aplicado ao cliente instalado. As 21 ocorrências de
+diferença entre catálogo e construção pertencem a entradas deliberadamente
+preservadas, principalmente títulos musicais, e não são substituídas. A
+barreira atual é comprovar o papel dos sidecars de integridade e produzir
+instalação, atualização e restauração realmente reversíveis. Consulte o
+[status técnico](./docs/STATUS.md).
 
 ## 03 / COMO O MOD ESTÁ SENDO CONSTRUÍDO
 
