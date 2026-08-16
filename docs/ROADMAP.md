@@ -3,7 +3,7 @@
 O roadmap separa cobertura textual, revisão manual e validação técnica. Uma
 etapa concluída não antecipa automaticamente a próxima.
 
-## Fase 0 — Mapeamento do cliente
+## Fase 0: Mapeamento do cliente
 
 **Estado: concluída**
 
@@ -11,7 +11,7 @@ etapa concluída não antecipa automaticamente a próxima.
 - 75 contêineres e 724.181 linhas lógicas inventariados;
 - formatos `.lsc`, `.lss`, `.cat`, `NKDB` e SQLite classificados.
 
-## Fase 1 — Ferramentas e catálogo
+## Fase 1: Ferramentas e catálogo
 
 **Estado: concluída**
 
@@ -21,7 +21,7 @@ etapa concluída não antecipa automaticamente a próxima.
 - lotes editoriais determinísticos e importação transacional;
 - construtor isolado e testes automatizados.
 
-## Fase 2 — Tradução e integridade lateral
+## Fase 2: Tradução e integridade lateral
 
 **Estado: atual**
 
@@ -31,7 +31,7 @@ etapa concluída não antecipa automaticamente a próxima.
 - determinar o papel dos sidecars `.nds` e hashes dos catálogos;
 - manter toda construção fora do cliente instalado.
 
-## Fase 3 — Instalação reversível
+## Fase 3: Instalação reversível
 
 **Estado: pendente**
 
@@ -40,7 +40,7 @@ etapa concluída não antecipa automaticamente a próxima.
 - recusar versões desconhecidas sem afetar o jogo;
 - definir atualização e substituição de pacote sem resíduos.
 
-## Fase 4 — QA privado
+## Fase 4: QA privado
 
 **Estado: pendente**
 
@@ -49,7 +49,7 @@ etapa concluída não antecipa automaticamente a próxima.
 - testar interface, narrativa, combate, eventos e resoluções;
 - registrar limites, textos pendentes e compatibilidade exata.
 
-## Fase 5 — Primeira versão pública
+## Fase 5: Primeira versão pública
 
 **Estado: pendente**
 
@@ -58,7 +58,7 @@ etapa concluída não antecipa automaticamente a próxima.
 - documentar instalação, atualização e remoção;
 - manter a numeração pré-1.0 enquanto houver revisão integral pendente.
 
-## Fase 6 — Versão 1.0.0
+## Fase 6: Versão 1.0.0
 
 **Estado: sem prazo**
 
