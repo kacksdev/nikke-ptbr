@@ -1,0 +1,27 @@
+name: Sugestão técnica
+description: Sugira uma melhoria compatível com a arquitetura do mod de localização.
+title: "[TÉCNICO] "
+labels:
+  - documentation
+body:
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Sugestão
+      description: Explique a ferramenta, abordagem ou melhoria e como ela se aplica ao modding de localização.
+    validations:
+      required: true
+  - type: textarea
+    id: benefit
+    attributes:
+      label: Benefício esperado
+      description: Descreva o ganho de compatibilidade, estabilidade, desempenho ou qualidade.
+    validations:
+      required: true
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Confirmação
+      options:
+        - label: Não incluí arquivos do jogo, builds privadas, credenciais ou dados pessoais.
+          required: true

@@ -1,0 +1,36 @@
+name: Correção de documentação
+description: Informe uma informação pública incorreta, desatualizada ou ambígua.
+title: "[Documentação] "
+labels:
+  - documentação
+body:
+  - type: markdown
+    attributes:
+      value: Obrigado por ajudar a manter o projeto preciso.
+  - type: input
+    id: page
+    attributes:
+      label: Página ou arquivo
+      placeholder: README.md ou docs/STATUS.md
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: O que está incorreto
+      description: Explique a divergência e, se possível, forneça uma fonte verificável.
+    validations:
+      required: true
+  - type: textarea
+    id: correction
+    attributes:
+      label: Correção sugerida
+    validations:
+      required: true
+  - type: checkboxes
+    id: proprietary
+    attributes:
+      label: Confirmação
+      options:
+        - label: Não anexei arquivos proprietários, textos integrais do jogo nem dados pessoais.
+          required: true

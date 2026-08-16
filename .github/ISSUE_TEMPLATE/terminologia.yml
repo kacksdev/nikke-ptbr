@@ -1,0 +1,38 @@
+name: Sugestão de terminologia
+description: Proponha uma tradução ou preservação de termo com contexto suficiente.
+title: "[Terminologia] "
+labels:
+  - terminologia
+body:
+  - type: input
+    id: term
+    attributes:
+      label: Termo
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Contexto de uso
+      description: Informe menu, sistema, personagem ou cena sem copiar blocos extensos do jogo.
+    validations:
+      required: true
+  - type: input
+    id: suggestion
+    attributes:
+      label: Forma sugerida em PT-BR
+    validations:
+      required: true
+  - type: textarea
+    id: reason
+    attributes:
+      label: Justificativa
+    validations:
+      required: true
+  - type: checkboxes
+    id: proprietary
+    attributes:
+      label: Confirmação
+      options:
+        - label: Não anexei arquivos proprietários, textos integrais do jogo nem dados pessoais.
+          required: true

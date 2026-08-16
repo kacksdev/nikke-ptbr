@@ -1,0 +1,26 @@
+name: Correção documental
+description: Sinalize uma afirmação incorreta ou pouco clara.
+title: "[DOC] "
+labels:
+  - documentation
+body:
+  - type: input
+    id: page
+    attributes:
+      label: Página ou seção
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Correção proposta
+      description: Explique a divergência e indique a correção de forma objetiva.
+    validations:
+      required: true
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Escopo
+      options:
+        - label: A solicitação não inclui arquivos do jogo, builds privadas ou dados pessoais.
+          required: true
