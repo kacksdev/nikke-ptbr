@@ -77,6 +77,35 @@ Nenhum instalador será liberado antes de confirmar:
 - detecção de atualização desconhecida;
 - ausência de regressão mensurável de desempenho.
 
+## Modelo do instalador Windows
+
+A distribuição planejada será um único executável gráfico com conteúdo do
+projeto incorporado. Ela não dependerá de scripts soltos, telemetria ou download
+durante a instalação e não incluirá a base proprietária do cliente.
+
+Cada operação deverá seguir uma transação verificável:
+
+1. localizar automaticamente o cliente ou receber uma pasta escolhida pelo
+   usuário;
+2. confirmar executável, versão, estrutura e hashes compatíveis;
+3. validar o SHA-256 de todo conteúdo incorporado antes de gravar;
+4. preparar as alterações em diretório temporário fora da instalação ativa;
+5. criar backup com manifesto apenas dos alvos que serão modificados;
+6. aplicar a troca de forma atômica e verificar o resultado instalado;
+7. desfazer todas as alterações se ocorrer erro ou cancelamento;
+8. registrar o resultado em um log local que possa ser aberto pela interface.
+
+A mesma interface reunirá os modos instalar, atualizar, reparar, verificar e
+remover. Arquivos existentes que não pertençam ao projeto deverão ser
+preservados. Elevação de privilégio só poderá ser solicitada quando a pasta de
+destino realmente exigir.
+
+Antes de uma publicação, o arquivo final deverá passar por uma matriz que cubra
+pasta inválida, instalação limpa, repetição idempotente, corrupção, falha
+injetada com rollback, preservação de arquivos alheios e remoção interrompida.
+O mesmo hash aprovado será testado em cliente limpo com inicialização do jogo,
+inspeção do log, medição de desempenho e restauração completa.
+
 ## Política de atualização segura
 
 Uma futura instalação deverá reconhecer a versão e todos os hashes esperados.
