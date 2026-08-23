@@ -52,11 +52,14 @@ Em andamento:
 
 - tradução da interface;
 - investigação dos sidecars `.nds` e hashes de catálogo;
-- definição do pacote reversível e do comportamento após atualizações.
+- implementação do pacote reversível e do comportamento após atualizações;
+- especificação do instalador gráfico único para Windows, com transação,
+  rollback e modos de manutenção.
 
 Pendente:
 
-- instalação controlada;
+- implementação e validação do instalador gráfico;
+- matriz de instalação, atualização, reparo, verificação e remoção;
 - validação no cliente;
 - medições de desempenho;
 - pacote público, instruções e release.

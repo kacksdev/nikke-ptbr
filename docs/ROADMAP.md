@@ -35,10 +35,16 @@ etapa concluída não antecipa automaticamente a próxima.
 
 **Estado: pendente**
 
-- reconhecer versão e hashes antes de escrever;
-- produzir backup verificável e restauração automática;
+- construir um executável gráfico único para Windows;
+- localizar o cliente automaticamente e permitir seleção manual;
+- reconhecer versão, estrutura e hashes antes de escrever;
+- validar o conteúdo incorporado e preparar mudanças fora do cliente ativo;
+- produzir backup com manifesto, aplicação transacional e rollback automático;
+- reunir instalação, atualização, reparo, verificação e remoção na mesma
+  interface;
 - recusar versões desconhecidas sem afetar o jogo;
-- definir atualização e substituição de pacote sem resíduos.
+- preservar arquivos alheios e impedir resíduos após atualização ou remoção;
+- aprovar matriz automatizada e ciclo do arquivo final em cliente limpo.
 
 ## Fase 4: QA privado
 
@@ -55,7 +61,8 @@ etapa concluída não antecipa automaticamente a próxima.
 
 - publicar arquivo somente em Releases;
 - fornecer SHA-256 e manifesto;
-- documentar instalação, atualização e remoção;
+- distribuir o instalador gráfico único já validado;
+- documentar instalação, atualização, reparo, verificação, remoção e rollback;
 - manter a numeração pré-1.0 enquanto houver revisão integral pendente.
 
 ## Fase 6: Versão 1.0.0

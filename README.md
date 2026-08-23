@@ -61,8 +61,9 @@ Os arquivos traduzidos são reconstruídos e auditados apenas em cópias
 isoladas. Nenhum deles foi aplicado ao cliente instalado. As 21 ocorrências de
 diferença entre catálogo e construção pertencem a entradas deliberadamente
 preservadas, principalmente títulos musicais, e não são substituídas. A
-barreira atual é comprovar o papel dos sidecars de integridade e produzir
-instalação, atualização e restauração realmente reversíveis. Consulte o
+barreira atual é comprovar o papel dos sidecars de integridade e implementar
+um instalador gráfico único com atualização, restauração e rollback realmente
+reversíveis. Consulte o
 [status técnico](./docs/STATUS.md).
 
 ## 03 / COMO O MOD ESTÁ SENDO CONSTRUÍDO
@@ -87,14 +88,37 @@ runtime. O fluxo trabalha diretamente com os bancos de idioma do cliente:
 4. importa lotes PT-BR de forma transacional;
 5. bloqueia regressões em placeholders, marcações e quebras de linha;
 6. remonta os arquivos em diretório isolado e verifica o round-trip;
-7. somente permitirá instalação quando backup, integridade lateral e rollback
-   estiverem comprovados.
+7. somente permitirá instalação quando integridade lateral, backup, transação,
+   rollback e remoção estiverem comprovados.
 
 Uma atualização desconhecida do jogo deverá fazer o instalador **falhar de
 forma segura**, mantendo o cliente original intacto, em vez de aplicar arquivos
 incompatíveis. Veja a [arquitetura técnica](./docs/ARQUITETURA.md).
 
-## 04 / ESCOPO DA TRADUÇÃO
+## 04 / INSTALADOR PLANEJADO PARA WINDOWS
+
+Quando existir uma build segura, o mod será distribuído como **um único
+executável gráfico**, sem depender de scripts soltos. O instalador deverá:
+
+- localizar automaticamente instalações compatíveis e aceitar seleção manual;
+- validar versão, hashes do cliente e integridade do conteúdo incorporado antes
+  de qualquer alteração;
+- preparar todas as mudanças em área temporária, criar backup verificável e
+  concluir a troca de forma transacional;
+- restaurar o estado anterior automaticamente se houver erro ou cancelamento;
+- mostrar progresso e resultado em linguagem clara, com detalhes técnicos
+  recolhíveis para diagnóstico;
+- reunir instalação, atualização, reparo, verificação e remoção na mesma
+  interface;
+- preservar arquivos alheios ao projeto e não usar telemetria nem downloads
+  durante a instalação.
+
+O arquivo exato de cada futura Release deverá passar por matriz automatizada e
+por um ciclo completo em cliente limpo: instalar, verificar, iniciar o jogo,
+inspecionar o log e remover restaurando o estado original. A Release também
+informará SHA-256, manifesto e versão do cliente validada.
+
+## 05 / ESCOPO DA TRADUÇÃO
 
 | Conteúdo | Tratamento previsto |
 | --- | --- |
@@ -106,7 +130,7 @@ incompatíveis. Veja a [arquitetura técnica](./docs/ARQUITETURA.md).
 | Identidade da obra | Nomes próprios, marcas e títulos musicais preservados quando a tradução prejudicar a identificação. |
 | Integridade | IDs, tags, variáveis, Unicode, layout e atualizações não podem ser quebrados pela tradução. |
 
-## 05 / AUTORIA E TRANSPARÊNCIA
+## 06 / AUTORIA E TRANSPARÊNCIA
 
 **NIKKE PT-BR é um projeto criado, dirigido, mantido e validado por mim.** A
 definição do escopo, o padrão de qualidade, as decisões editoriais, os testes no
@@ -124,13 +148,14 @@ As métricas diferenciam tradução produzida, revisão manual e validação no 
 Nenhum número publicado implica que todas as frases já foram revisadas por uma
 pessoa. Consulte [Autoria e processo](./docs/AUTORIA-E-PROCESSO.md).
 
-## 06 / PUBLICAÇÃO
+## 07 / PUBLICAÇÃO
 
 - Projeto comunitário para **PC / Windows**, gratuito e sem paywall.
 - O repositório público contém progresso e documentação; não contém textos
   extraídos, bancos proprietários nem uma build disfarçada.
-- Quando existir uma versão segura, o download ficará em **Releases**, com
-  arquivo, hash, compatibilidade, instalação, atualização e remoção documentados.
+- Quando existir uma versão segura, o download ficará em **Releases** como um
+  instalador gráfico único, acompanhado por hash, manifesto, compatibilidade e
+  instruções de recuperação.
 - O botão **Code → Download ZIP** não é o download do mod.
 - GODDESS OF VICTORY: NIKKE e seus elementos pertencem aos respectivos titulares.
 - O projeto é independente e não possui afiliação ou endosso oficial.
