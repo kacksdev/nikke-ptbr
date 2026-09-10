@@ -1,0 +1,45 @@
+name: Erro de tradução
+description: Relate um texto incorreto, sem tradução ou inadequado ao contexto.
+title: "[TRADUÇÃO] "
+labels:
+  - tradução
+body:
+  - type: markdown
+    attributes:
+      value: Obrigado por ajudar a melhorar a tradução. Descreva somente o trecho necessário para identificar o problema.
+  - type: input
+    id: location
+    attributes:
+      label: Onde o texto aparece
+      description: Informe menu, sistema, personagem, capítulo ou cena.
+      placeholder: "Exemplo: Campanha, capítulo 3, diálogo de Andersen"
+    validations:
+      required: true
+  - type: textarea
+    id: current
+    attributes:
+      label: Texto atual e problema observado
+      description: Transcreva apenas o trecho curto afetado e explique o erro.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Correção sugerida
+      description: Se souber, indique a forma esperada e o motivo.
+  - type: input
+    id: client
+    attributes:
+      label: Versão do cliente
+      placeholder: NIKKE.PC_Official_GL_151.8.5
+    validations:
+      required: true
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Confirmações
+      options:
+        - label: Não anexei arquivos proprietários, textos extensos do jogo, credenciais nem dados pessoais.
+          required: true
+        - label: Verifiquei que o problema ocorre na versão mais recente disponível do mod.
+          required: true

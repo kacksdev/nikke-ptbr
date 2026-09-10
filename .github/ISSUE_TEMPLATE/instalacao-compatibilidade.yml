@@ -1,0 +1,64 @@
+name: Instalação ou compatibilidade
+description: Relate falha ao instalar, verificar, reparar, remover ou iniciar o jogo.
+title: "[INSTALAÇÃO] "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: Antes de enviar, confirme a compatibilidade indicada no README e remova credenciais ou dados pessoais dos registros.
+  - type: dropdown
+    id: operation
+    attributes:
+      label: Operação afetada
+      options:
+        - Instalação
+        - Verificação
+        - Reparo
+        - Remoção
+        - Inicialização do jogo
+        - Atualização do cliente
+    validations:
+      required: true
+  - type: input
+    id: client
+    attributes:
+      label: Versão do cliente
+      placeholder: NIKKE.PC_Official_GL_151.8.5
+    validations:
+      required: true
+  - type: input
+    id: mod
+    attributes:
+      label: Versão do mod
+      placeholder: 0.1.0
+    validations:
+      required: true
+  - type: textarea
+    id: behavior
+    attributes:
+      label: O que aconteceu
+      description: Informe a mensagem exibida, o resultado observado e o resultado esperado.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Passos para reproduzir
+      description: Liste os passos mínimos desde o cliente fechado.
+    validations:
+      required: true
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Diagnóstico opcional
+      description: Cole somente trechos relevantes e remova nomes de usuário, caminhos pessoais, credenciais e dados privados.
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Confirmações
+      options:
+        - label: O jogo e o launcher estavam fechados durante a operação do instalador.
+          required: true
+        - label: Não anexei arquivos do jogo, builds privadas, credenciais nem dados pessoais.
+          required: true

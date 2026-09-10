@@ -1,27 +1,44 @@
 # Ferramentas do projeto
 
-Somente ferramentas confirmadas no fluxo atual são listadas aqui.
+Somente componentes confirmados no fluxo da versão `0.1.0` são listados.
 
-## Dados e automação
+## Dados e qualidade
 
 | Ferramenta | Uso |
 | --- | --- |
-| Python | Inventário, decodificação, catálogo, lotes, auditoria e empacotamento isolado. |
+| Python 3 | Inventário, catálogo, lotes, auditoria, contratos e empacotamento. |
 | SQLite | Base privada de unidades, ocorrências, estados e histórico editorial. |
-| AES-OFB e zlib | Reconstrução independente dos contêineres `NKDB`. |
-| JSON e JSONL | Relatórios públicos agregados e lotes privados determinísticos. |
-| PowerShell | Orquestração e validações reproduzíveis no Windows. |
-| Git e GitHub | Versionamento da documentação e publicação futura de releases. |
+| JSON e JSONL | Relatórios, manifestos e lotes determinísticos. |
+| SHA-256 | Identidade de entradas, arquivos, pacotes e evidências. |
+| Testes automatizados | Placeholders, transações, recuperação, runtime e distribuição. |
 
-## Tradução e qualidade
+## Runtime
 
 | Componente | Uso |
 | --- | --- |
-| OpenAI Codex | Produção da base PT-BR, desenvolvimento das ferramentas e apoio às auditorias. |
-| Glossário versionado | Consistência de nomes, facções, armas e termos recorrentes. |
-| Validador estrutural | Preservação de placeholders, marcações, Unicode e quebras de linha. |
-| Testes automatizados | Cobertura do formato NKDB, importação transacional e construção segura. |
-| QA no cliente | Etapa futura para contexto, layout, carregamento, desempenho e compatibilidade. |
+| C nativo | Runtime de consulta e apresentação local da tradução. |
+| MinHook 1.3.4 | Interceptação temporária dos dois pontos validados do cliente. |
+| Zig 0.16.0 | Toolchain fixada para construção reproduzível do runtime Windows x64. |
+| WinHTTP proxy próprio | Encaminhamento para a biblioteca do Windows e carga do plugin fixo. |
 
-Ferramentas adicionais só serão documentadas depois de entrarem efetivamente
-no processo.
+O runtime não modifica `GameAssembly.dll` em disco e não implementa contorno de anticheat.
+
+## Instalador
+
+| Componente | Uso |
+| --- | --- |
+| .NET Framework 4.7.2 / WPF | Interface gráfica Windows x64. |
+| Python 3.10 | Núcleo transacional incorporado. |
+| PyInstaller 6.22.2 | Congelamento do núcleo em executável local. |
+| PowerShell | Orquestração e verificações reproduzíveis da construção. |
+| ZIP determinístico | Pacote GameBanana com ordem, timestamps e conteúdo fixos. |
+
+O instalador não baixa componentes nem envia telemetria durante a operação.
+
+## Colaboração e publicação
+
+| Ferramenta | Uso |
+| --- | --- |
+| OpenAI Codex | Tradução em escala, engenharia, auditoria, testes e documentação sob direção do mantenedor. |
+| Git e GitHub | Versionamento, Issues, segurança, manifesto e Releases. |
+| GameBanana | Distribuição alternativa e feedback da comunidade. |

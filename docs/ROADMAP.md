@@ -1,75 +1,74 @@
 # Roadmap do NIKKE PT-BR
 
-O roadmap separa cobertura textual, revisão manual e validação técnica. Uma
-etapa concluída não antecipa automaticamente a próxima.
+O roadmap separa cobertura técnica, revisão editorial, integração, instalação e publicação. Concluir uma área não transforma automaticamente as demais em revisão integral.
 
-## Fase 0: Mapeamento do cliente
-
-**Estado: concluída**
-
-- versão, Unity, backend e anticheat identificados;
-- 75 contêineres e 724.181 linhas lógicas inventariados;
-- formatos `.lsc`, `.lss`, `.cat`, `NKDB` e SQLite classificados.
-
-## Fase 1: Ferramentas e catálogo
+## Fase 0: mapeamento do cliente
 
 **Estado: concluída**
 
-- decodificador e remontador independentes;
-- igualdade binária comprovada em remontagem sem alteração;
-- catálogo privado com deduplicação e contexto;
-- lotes editoriais determinísticos e importação transacional;
-- construtor isolado e testes automatizados.
+- formatos e bancos relevantes identificados;
+- inventário do cliente e hashes reproduzíveis;
+- limites de segurança definidos.
 
-## Fase 2: Tradução e integridade lateral
+## Fase 1: ferramentas e catálogo
 
-**Estado: atual**
+**Estado: concluída**
 
-- traduzir os domínios do catálogo em lotes privados;
-- preservar nomes próprios, títulos musicais e marcadores funcionais;
-- registrar separadamente tradução, revisão e aprovação;
-- determinar o papel dos sidecars `.nds` e hashes dos catálogos;
-- manter toda construção fora do cliente instalado.
+- decodificação e remontagem independentes;
+- catálogo privado deduplicado;
+- lotes determinísticos e importação transacional;
+- auditorias de placeholders, tags, Unicode e termos protegidos.
 
-## Fase 3: Instalação reversível
+## Fase 2: cobertura da tradução
 
-**Estado: pendente**
+**Estado: concluída para a primeira versão funcional**
 
-- construir um executável gráfico único para Windows;
-- localizar o cliente automaticamente e permitir seleção manual;
-- reconhecer versão, estrutura e hashes antes de escrever;
-- validar o conteúdo incorporado e preparar mudanças fora do cliente ativo;
-- produzir backup com manifesto, aplicação transacional e rollback automático;
-- reunir instalação, atualização, reparo, verificação e remoção na mesma
-  interface;
-- recusar versões desconhecidas sem afetar o jogo;
-- preservar arquivos alheios e impedir resíduos após atualização ou remoção;
-- aprovar matriz automatizada e ciclo do arquivo final em cliente limpo.
+- 429.498 unidades conhecidas com base PT-BR;
+- 536.489 ocorrências em 34 tabelas;
+- zero bloqueio estrutural pendente;
+- apontamentos editoriais mantidos separadamente.
 
-## Fase 4: QA privado
+## Fase 3: integração reversível
 
-**Estado: pendente**
+**Estado: concluída no cliente 151.8.5**
 
-- validar carregamento e restauração no cliente;
-- medir inicialização, memória, travamentos e fluidez;
-- testar interface, narrativa, combate, eventos e resoluções;
-- registrar limites, textos pendentes e compatibilidade exata.
+- runtime próprio depois do NKDB;
+- correspondência por chave, texto exato e formato;
+- rota legada da interface;
+- validação de identidade e comportamento fail-open;
+- cliente restaurado sem arquivo oficial modificado.
 
-## Fase 5: Primeira versão pública
+## Fase 4: instalador e QA privado
 
-**Estado: pendente**
+**Estado: concluída**
 
-- publicar arquivo somente em Releases;
-- fornecer SHA-256 e manifesto;
-- distribuir o instalador gráfico único já validado;
-- documentar instalação, atualização, reparo, verificação, remoção e rollback;
-- manter a numeração pré-1.0 enquanto houver revisão integral pendente.
+- instalador gráfico único para Windows x64;
+- detecção automática e escolha manual;
+- instalar, verificar, reparar e remover;
+- journal, recuperação, quarentena e rollback;
+- 18/18 provas do pacote;
+- 11/11 provas do executável final;
+- 116/116 testes do workspace;
+- duas construções finais idênticas.
 
-## Fase 6: Versão 1.0.0
+## Fase 5: primeira publicação
 
-**Estado: sem prazo**
+**Estado: em preparação**
 
-A versão 1.0.0 exige cobertura total, revisão manual integral, terminologia
-uniforme, contexto aprovado, layout verificado e ausência de falhas técnicas
-conhecidas nos critérios definidos pelo projeto. Traduzir todas as entradas,
-sozinho, não satisfaz esse marco.
+- documentação pública atualizada;
+- manifesto e checksums preparados;
+- Release do GitHub preparada em rascunho;
+- página do GameBanana mantida privada até revisão final;
+- publicação simultânea somente após autorização explícita.
+
+## Fase 6: manutenção e maturidade editorial
+
+**Estado: contínuo, sem prazo**
+
+- adaptar o mod a versões futuras do cliente;
+- importar textos adicionados por atualizações;
+- corrigir relatos reproduzíveis;
+- revisar contexto, tom, gênero e terminologia quando priorizado;
+- ampliar evidência visual e testes de uso prolongado.
+
+A versão `1.0.0` exige maturidade editorial superior, consistência contextual e validação suficiente no jogo. A cobertura técnica da beta `0.1.0`, por si só, não satisfaz esse marco.

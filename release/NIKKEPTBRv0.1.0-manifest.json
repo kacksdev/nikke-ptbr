@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "modVersion": "0.1.0",
+  "releaseChannel": "beta",
+  "installerFile": "NIKKEPTBRv0.1.0.exe",
+  "installerBytes": 44595712,
+  "installerSha256": "F1EB0CEB91A88F6EC23CC6B48A0376FA04B8BCC42FB8F9A0BD2962FCD7EEB444",
+  "testedClientVersion": "NIKKE.PC_Official_GL_151.8.5",
+  "catalog": {
+    "uniqueUnits": 429498,
+    "occurrences": 536489,
+    "sourceTables": 34,
+    "formatTemplates": 2743,
+    "editorialQueue": 1689,
+    "hardFailures": 0
+  },
+  "packageIdentitySha256": "0DE558112B982AC416C11417A011C183E5C747A74E9DB51E66C4C0745427A208",
+  "embeddedBootstrapSha256": "ED14ECD3139F8D4FDC78A906E1AB88C0E3382F5F949A44A1B7BF863556DEEB89",
+  "installerCoreExecutableSha256": "9AB2E54D5AC98F7E8D1A9F4E8104A7C69878103C026F3DF5CB04F27667ECD214",
+  "installerCoreSourceSha256": "03B698B7A1BDDF7A300659412D513C01E90C04634B91788B9DB09A584A3593B2",
+  "validation": {
+    "packageHarness": {
+      "passed": 18,
+      "failed": 0
+    },
+    "finalInstallerHarness": {
+      "passed": 11,
+      "failed": 0
+    },
+    "workspaceTests": {
+      "passed": 116,
+      "failed": 0
+    },
+    "exactConsecutiveFinalBuilds": 2,
+    "realClient": {
+      "status": "approved_rollback_verified",
+      "testedInstallerSha256": "7088DF4F59FB07A95869E3B80F596EDFF8AB7A1E45EE5F42F1BAA4EC20103206",
+      "validatedPackageIdentitySha256": "0DE558112B982AC416C11417A011C183E5C747A74E9DB51E66C4C0745427A208",
+      "officialFilesModified": 0,
+      "relationshipToFinalInstaller": "same accepted package identity, embedded bootstrap and installer core; the final wrapper was rebuilt deterministically after completing distribution notices"
+    }
+  },
+  "generatedAtUtc": "2026-09-10T17:21:10Z"
+}

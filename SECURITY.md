@@ -1,31 +1,40 @@
-# Segurança
+# Política de segurança
 
-## Versões suportadas
+## Versões cobertas
 
-Não há versão pública do mod. Neste momento, apenas a documentação da branch
-`main` recebe correções de segurança.
+| Versão | Suporte |
+| --- | --- |
+| 0.1.x beta | Sim |
+| Builds privadas anteriores | Não |
 
-## Como relatar
+## Relato privado
 
-Use o [relato privado de vulnerabilidade](https://github.com/kacksdev/nikke-ptbr/security/advisories/new)
-para credencial exposta, dado pessoal, arquivo proprietário incluído por engano
-ou risco ligado às ferramentas futuramente publicadas. Não abra uma Issue
-pública para esses casos.
+Não abra uma Issue pública para vulnerabilidade, credencial, dado pessoal ou comportamento que possa comprometer o computador de outro usuário. Use o [relato privado de vulnerabilidade](https://github.com/kacksdev/nikke-ptbr/security/advisories/new).
 
 Inclua, quando possível:
 
-- descrição e impacto;
-- arquivo ou componente afetado;
-- passos mínimos de reprodução;
-- forma segura de confirmar a correção.
+- versão do mod e do cliente;
+- arquivo ou etapa afetada;
+- comportamento observado e esperado;
+- reprodução mínima sem dados pessoais.
 
-## Fora do escopo atual
+## Medidas da versão
 
-- solicitação de acesso a builds privadas;
-- problemas gerais do cliente oficial;
-- fraude, conta ou suporte do jogo;
-- conteúdo que não pertence a este projeto.
+- instalador, manifesto e hash SHA-256 publicados juntos;
+- pacote incorporado validado antes da escrita;
+- versão, arquivos críticos e dois fingerprints conferidos;
+- journal persistente e recuperação após interrupção;
+- rollback automático;
+- reparo restrito a componentes reconhecidos;
+- colisões com arquivos desconhecidos recusadas;
+- remoção limitada aos três arquivos próprios;
+- runtime fail-open, preservando o texto original;
+- zero telemetria e zero download durante a instalação.
 
-Nenhuma ferramenta futura deverá enviar telemetria, credenciais ou arquivos do
-jogo. Instalação e atualização serão bloqueadas diante de versão ou hash
-desconhecido.
+## Fora do escopo
+
+- vulnerabilidades do próprio NIKKE ou de seus serviços;
+- contorno de autenticação, proteção, anticheat ou monetização;
+- arquivos do cliente obtidos de fontes não autorizadas;
+- modificações feitas por pacotes de terceiros;
+- suporte geral de conta ou launcher.

@@ -1,118 +1,79 @@
 # Arquitetura técnica
 
-## Objetivo
+## Princípios
 
-Entregar português brasileiro pelo sistema de dados do próprio cliente, sem
-OCR, sobreposição visual ou hooks de runtime. A prioridade é que uma versão
-desconhecida do jogo permaneça intacta e inicializável.
+A primeira versão funcional segue cinco regras:
 
-## Cliente confirmado
+1. não substituir arquivos oficiais do cliente;
+2. recusar versão ou identidade desconhecida antes de gravar;
+3. aplicar somente correspondências exatas ou determinísticas;
+4. falhar de forma segura, preservando o texto original;
+5. tornar instalação, reparo e remoção auditáveis e reversíveis.
 
-| Item | Valor |
+O projeto não contorna autenticação, monetização, rede, anticheat ou mecanismos de atualização.
+
+## Catálogo privado
+
+Os textos conhecidos são extraídos dos contêineres de texto do cliente para um catálogo SQLite privado. Cada unidade recebe identidade estável, contexto, estado editorial, proveniência e histórico de importação.
+
+A base de distribuição não é um banco oficial modificado. Ela é compilada para um índice próprio, imutável e validado, que contém somente os dados necessários à apresentação local das traduções. Bancos, chaves, dumps e textos integrais extraídos não são publicados no repositório.
+
+## Runtime
+
+A distribuição instala três arquivos ao lado de `nikke.exe`:
+
+| Arquivo | Função |
 | --- | --- |
-| Plataforma | Windows / PC |
-| Versão analisada | `150.6.9` |
-| Unity | `2021.3.56f2` |
-| Backend | IL2CPP |
-| Anticheat | AntiCheat Expert |
-| Pacotes de texto | 49 `.lsc` e 24 `.lss` |
-| Catálogos | 2 `.cat` |
+| `winhttp.dll` | Encaminha a superfície WinHTTP para a biblioteca do Windows e carrega somente o plugin fixo. |
+| `NIKKEPTBR-Runtime.dll` | Valida o processo, ativa as rotas de texto e aplica correspondências seguras. |
+| `NIKKEPTBR-Runtime.idx` | Índice imutável das correspondências PT-BR. |
 
-## Contêiner e catálogo
+O encaminhador preserva as exportações esperadas do WinHTTP do sistema. O runtime verifica a identidade do executável, do módulo e de dois pontos independentes antes de ativar qualquer interceptação temporária.
 
-Os pacotes textuais principais usam o contêiner `NKDB` versão 1. A ferramenta
-independente do projeto reconstrói seus segmentos, obtém o banco SQLite e é
-capaz de remontar os arquivos byte a byte quando não há alterações.
+As rotas cobertas são:
 
-O catálogo privado registra:
+- consulta principal por tabela e chave;
+- comparação exata com o texto-fonte;
+- correspondência determinística de modelos formatados, preservando placeholders;
+- atribuição legada de `UnityEngine.UI.Text` para superfícies que não passam pela primeira rota.
 
-- hash do contêiner e do banco lógico;
-- arquivo, tabela, chave e tipo da chave;
-- texto-fonte e identidade SHA-256;
-- classificação, estado editorial e tradução PT-BR;
-- ocorrências duplicadas e contexto de uso.
+Uma chave desconhecida, texto divergente, formato inválido, índice ausente ou cliente incompatível conserva o valor original. O runtime não modifica `GameAssembly.dll` em disco.
 
-Textos proprietários e bancos extraídos permanecem fora do Git.
+## Instalador
 
-## Pipeline editorial
+O instalador WPF contém um núcleo transacional e o pacote incorporado. Antes de escrever, ele valida:
 
-Os lotes privados usam JSONL e uma identidade estável da base. Antes de uma
-importação, o processo confirma texto-fonte e hash, valida placeholders,
-marcações e quebras de linha e impede conflitos ou rebaixamento editorial. A
-gravação é transacional: qualquer erro desfaz o lote inteiro.
+- pasta e estrutura do cliente;
+- versão e hashes críticos;
+- dois fingerprints internos independentes;
+- identidade e SHA-256 do bootstrap;
+- manifesto e todos os arquivos da carga útil;
+- estado anterior e colisões com componentes desconhecidos.
 
-Estados atuais:
+A operação segue este ciclo:
 
-- `pending`: ainda sem tradução;
-- `translated`: base PT-BR produzida e estruturalmente válida;
-- `reviewed`: revisada com contexto;
-- `approved`: aprovada para uma versão testada.
+1. inspeção sem gravação;
+2. criação ou recuperação do journal;
+3. materialização verificada fora do cliente;
+4. cópia atômica de cada componente próprio;
+5. verificação integral do resultado;
+6. registro do estado e do recibo;
+7. rollback automático diante de falha.
 
-## Construção isolada
+Reparo usa quarentena para um componente conhecido alterado. Remoção exige um estado correspondente e apaga somente arquivos com identidade reconhecida. Um arquivo desconhecido bloqueia a ação em vez de ser sobrescrito ou removido.
 
-O construtor:
+## Estado local
 
-1. recusa destinos dentro do cliente instalado;
-2. exige os hashes exatos da versão catalogada;
-3. aplica somente estados editoriais aceitos;
-4. valida cada chave e o texto atual antes da alteração;
-5. executa `integrity_check` no SQLite resultante;
-6. remonta o `NKDB`, reabre o resultado e verifica o round-trip;
-7. emite um manifesto sem texto proprietário.
+Journal, recibos e quarentena ficam em `%LOCALAPPDATA%\Kacksdev\NIKKEPTBR\state`, separados por identidade da instalação. O bootstrap verificado usa `%LOCALAPPDATA%\Kacksdev\NIKKEPTBR\cache`.
 
-A construção atual é marcada como `not_installable` e serve apenas como prova
-de engenharia.
+O runtime pode criar apenas `NIKKEPTBR-Runtime\runtime.log` como saída no diretório do jogo. Saída inesperada bloqueia a remoção automática até inspeção.
 
-## Integridade lateral
+## Validação
 
-Os arquivos `.nds` possuem 96 bytes e aparentam participar da cadeia de
-integridade ou atualização. Seu papel exato ainda não foi comprovado. Eles não
-são copiados, modificados nem sintetizados por suposição.
+O pacote passou por 18 verificações de contrato e ciclo transacional. O executável final passou por 11 cenários em réplica descartável, incluindo instalação limpa, repetição idempotente, reparo, quarentena, recusa de versão desconhecida, remoção, colisão com proxy de terceiro, materialização do bootstrap e preservação dos hashes do cliente real.
 
-Nenhum instalador será liberado antes de confirmar:
+A aceitação real comprovou carregamento do catálogo, texto visível, reparo, remoção e rollback no cliente `151.8.5`. A carga útil da versão final é a mesma aceita nessa prova. O invólucro final recebeu apenas congelamento determinístico e avisos completos de terceiros, seguido de nova aprovação dos 11 cenários isolados.
 
-- relação entre contêiner, sidecar e catálogos de assets;
-- comportamento do launcher e do cliente com arquivos modificados;
-- backup e restauração automáticos;
-- detecção de atualização desconhecida;
-- ausência de regressão mensurável de desempenho.
+## Limites
 
-## Modelo do instalador Windows
-
-A distribuição planejada será um único executável gráfico com conteúdo do
-projeto incorporado. Ela não dependerá de scripts soltos, telemetria ou download
-durante a instalação e não incluirá a base proprietária do cliente.
-
-Cada operação deverá seguir uma transação verificável:
-
-1. localizar automaticamente o cliente ou receber uma pasta escolhida pelo
-   usuário;
-2. confirmar executável, versão, estrutura e hashes compatíveis;
-3. validar o SHA-256 de todo conteúdo incorporado antes de gravar;
-4. preparar as alterações em diretório temporário fora da instalação ativa;
-5. criar backup com manifesto apenas dos alvos que serão modificados;
-6. aplicar a troca de forma atômica e verificar o resultado instalado;
-7. desfazer todas as alterações se ocorrer erro ou cancelamento;
-8. registrar o resultado em um log local que possa ser aberto pela interface.
-
-A mesma interface reunirá os modos instalar, atualizar, reparar, verificar e
-remover. Arquivos existentes que não pertençam ao projeto deverão ser
-preservados. Elevação de privilégio só poderá ser solicitada quando a pasta de
-destino realmente exigir.
-
-Antes de uma publicação, o arquivo final deverá passar por uma matriz que cubra
-pasta inválida, instalação limpa, repetição idempotente, corrupção, falha
-injetada com rollback, preservação de arquivos alheios e remoção interrompida.
-O mesmo hash aprovado será testado em cliente limpo com inicialização do jogo,
-inspeção do log, medição de desempenho e restauração completa.
-
-## Política de atualização segura
-
-Uma futura instalação deverá reconhecer a versão e todos os hashes esperados.
-Se qualquer verificação divergir, ela encerra sem alterar o jogo. A atualização
-do launcher sempre ocorre com o cliente original restaurado; só depois uma
-versão compatível do mod pode ser reaplicada.
-
-Esse modelo não promete compatibilidade cega com toda versão futura. Ele
-garante comportamento seguro: atualização desconhecida nunca deve receber um
-pacote antigo à força.
+A arquitetura não promete compatibilidade cega com atualizações futuras. Cada versão pública declara o cliente testado. Uma atualização desconhecida precisa de nova análise de catálogo, fingerprints, testes isolados e, quando necessário, aceitação real antes de receber suporte.

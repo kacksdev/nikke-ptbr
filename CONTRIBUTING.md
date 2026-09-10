@@ -1,24 +1,36 @@
 # Contribuição
 
-Este repositório acompanha o desenvolvimento público do NIKKE PT-BR. Ainda não
-há build disponível para teste comunitário.
+Obrigado pelo interesse no NIKKE PT-BR.
 
-## Contribuições aceitas
+## Relatos aceitos
 
+- erro de tradução com tela e contexto suficientes;
+- falha de instalação, verificação, reparo ou remoção;
+- incompatibilidade reproduzível com a versão indicada;
 - correção objetiva de documentação;
-- referência técnica verificável sobre o formato usado pelo cliente;
 - sugestão de terminologia acompanhada de contexto;
-- melhoria de acessibilidade ou clareza do repositório;
-- relato privado de segurança pelo canal indicado em `SECURITY.md`.
+- melhoria técnica compatível com os limites do projeto.
+
+Use o modelo de Issue adequado e informe sempre as versões do mod e do cliente.
 
 ## Não publique
 
 - bancos, assets, executáveis ou textos integrais do jogo;
-- credenciais, tokens, identificadores de conta ou logs pessoais;
-- builds privadas, links não autorizados ou arquivos obtidos do cliente;
-- conteúdo sem relação direta com este repositório;
+- credenciais, tokens, identificadores de conta ou dados pessoais;
+- saves, logs completos sem revisão ou caminhos privados desnecessários;
+- builds privadas ou links não autorizados;
+- técnicas para contornar autenticação, monetização, anticheat ou segurança;
 - alegações técnicas sem evidência reproduzível.
 
-Abra uma Issue no modelo adequado antes de uma alteração extensa. Pull requests
-só entram após minha análise e aceite explícito como `@kacksdev`; a branch
-principal é protegida e a decisão final permanece com o mantenedor.
+## Pull requests
+
+Abra uma Issue antes de uma alteração extensa. Pull requests precisam:
+
+- pertencer exclusivamente ao NIKKE PT-BR;
+- preservar a separação entre tradução e revisão editorial;
+- não incluir material proprietário;
+- explicar como a mudança foi verificada;
+- manter instalação e remoção reversíveis;
+- passar pela análise e aceite explícito de `@kacksdev`.
+
+A decisão editorial, técnica e de publicação permanece com o mantenedor.
