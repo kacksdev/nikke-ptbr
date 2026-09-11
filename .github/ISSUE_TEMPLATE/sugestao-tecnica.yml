@@ -1,14 +1,14 @@
 name: Sugestão técnica
-description: Sugira uma melhoria compatível com a arquitetura do mod de localização.
+description: Sugira uma melhoria compatível com a arquitetura do mod de tradução.
 title: "[TÉCNICO] "
 labels:
-  - documentation
+  - engenharia
 body:
   - type: textarea
     id: suggestion
     attributes:
       label: Sugestão
-      description: Explique a ferramenta, abordagem ou melhoria e como ela se aplica ao modding de localização.
+      description: Explique a ferramenta, abordagem ou melhoria e como ela se aplica ao mod de tradução.
     validations:
       required: true
   - type: textarea

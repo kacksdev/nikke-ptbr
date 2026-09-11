@@ -1,20 +1,28 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/nikke-hero-dark.png" />
   <source media="(prefers-color-scheme: light)" srcset="./assets/nikke-hero-light.png" />
-  <img src="./assets/nikke-hero-light.png" alt="NIKKE em composição monocromática desenhada para a identidade visual do projeto" width="100%" />
+  <img src="./assets/nikke-hero-light.png" alt="GODDESS OF VICTORY: NIKKE em arte monocromática do projeto" width="100%" />
 </picture>
 
 <h1 align="center">GODDESS OF VICTORY: NIKKE PT-BR / PC</h1>
 
 <p align="center">
-  <strong>TRADUÇÃO COMUNITÁRIA / DESENVOLVIMENTO ATIVO / SEM BUILD PÚBLICA</strong>
+  <strong>TRADUÇÃO COMUNITÁRIA / BETA / WINDOWS X64</strong>
 </p>
 
 <p align="center">
-  <code>v0.1.0-dev</code>&nbsp;&nbsp;
-  <code>FASE 2/6</code>&nbsp;&nbsp;
-  <code>CLIENTE 150.6.9</code>&nbsp;&nbsp;
-  <code>PC / WINDOWS</code>
+  <code>v0.1.0 BETA</code>&nbsp;&nbsp;
+  <code>CLIENTE 151.8.5</code>&nbsp;&nbsp;
+  <code>INSTALADOR GRÁFICO</code>&nbsp;&nbsp;
+  <code>REMOÇÃO SEGURA</code>
+</p>
+
+<p align="center">
+  <a href="https://github.com/kacksdev/nikke-ptbr/releases/latest"><strong>BAIXAR A VERSÃO ATUAL</strong></a>
+  &nbsp;·&nbsp;
+  <a href="./docs/INSTALACAO.md">INSTALAR, VERIFICAR, REPARAR OU REMOVER</a>
+  &nbsp;·&nbsp;
+  <a href="./docs/STATUS.md">VER O ESTADO TÉCNICO</a>
 </p>
 
 <picture>
@@ -25,142 +33,117 @@
 
 ## 01 / O PROJETO
 
-Este é o painel público de desenvolvimento do **NIKKE PT-BR para PC**, uma
-tradução comunitária, gratuita e sem monetização. O objetivo é cobrir os textos
-do jogo por modding interno dos próprios pacotes de idioma, preservando
-marcadores, nomes próprios, títulos musicais e funcionamento do cliente.
+**NIKKE PT-BR** é uma tradução comunitária gratuita para a versão de PC de GODDESS OF VICTORY: NIKKE. O mod apresenta em português brasileiro os textos conhecidos pelo catálogo sem substituir executáveis, bancos ou arquivos oficiais do cliente.
 
-O projeto já saiu da fase de planejamento: o cliente foi mapeado, o formato de
-dados foi reconstruído, o catálogo privado foi criado e a tradução começou.
-Ainda **não existe pacote seguro para instalar**. O botão **Code → Download
-ZIP** baixa somente esta documentação e os recursos visuais do repositório.
+Esta é uma **beta funcional de ampla cobertura**, não uma revisão editorial integral frase por frase. A base passou por auditorias estruturais, integração real e testes de instalação, mas ainda pode conter literalidade, escolhas contextuais a refinar, pequenas inconsistências ou conteúdo novo em inglês após uma atualização.
 
-> **Tradução, não localização profissional.** A meta imediata é traduzir 100%
-> do conteúdo textual e realizar verificações técnicas e editoriais seletivas.
-> Partes da base podem permanecer literais ou exigir correção contextual até
-> receberem revisão manual. A versão 1.0.0 fica reservada para um estado
-> integralmente revisado e validado, sem prazo prometido.
+> A versão **1.0.0** fica reservada para um estágio editorialmente mais maduro. A revisão integral não possui prazo anunciado e não é confundida com a cobertura técnica desta beta.
+
+O projeto é criado, dirigido, mantido e validado por **Kacks**. Não possui afiliação, patrocínio ou endosso da SHIFT UP, Level Infinite, Proxima Beta ou dos publicadores oficiais.
 
 ## 02 / ESTADO ATUAL
 
-| Área | Estado verificável |
+| Indicador | Resultado |
+| --- | ---: |
+| Unidades únicas com base PT-BR | **429.498 / 429.498** |
+| Ocorrências conhecidas cobertas | **536.489** |
+| Tabelas de origem | **34** |
+| Modelos de texto formatado | **2.743** |
+| Bloqueios estruturais pendentes | **0** |
+| Apontamentos editoriais preservados | **1.689** |
+| Pacote transacional | **18/18 verificações** |
+| Executável final | **11/11 verificações** |
+| Suíte atual do projeto | **116/116 testes** |
+
+Esses números descrevem cobertura e integridade técnica. Eles não significam que 429.498 frases receberam revisão humana individual. Os apontamentos editoriais permanecem registrados para uma etapa futura, sem invalidar o funcionamento da primeira versão.
+
+O pacote atual foi validado no cliente **NIKKE.PC_Official_GL_151.8.5**. A instalação real comprovou carregamento do catálogo, substituições por chave, texto exato e texto formatado, rotas legadas da interface, reparo, remoção e rollback limpo.
+
+## 03 / INSTALAÇÃO RÁPIDA
+
+1. Atualize o NIKKE pelo launcher oficial.
+2. Feche completamente o jogo e o launcher.
+3. Na [Release mais recente](https://github.com/kacksdev/nikke-ptbr/releases/latest), baixe **`NIKKEPTBRv0.1.0.exe`**.
+4. Abra o executável e confirme a pasta detectada. Se necessário, use **ESCOLHER PASTA**.
+5. Selecione **INSTALAR TRADUÇÃO** e aguarde a confirmação final.
+6. Abra o jogo normalmente pelo launcher oficial.
+
+O mesmo aplicativo permite **verificar, reparar e remover** o mod. Não é necessário abrir terminal ou copiar arquivos manualmente.
+
+> **Não use `Code > Download ZIP` para instalar.** Esse botão baixa o conteúdo do repositório. O instalador pronto fica em **Releases**.
+
+Consulte [Instalação, atualização e remoção](./docs/INSTALACAO.md) para o guia completo.
+
+## 04 / COMO FUNCIONA
+
+A distribuição adiciona somente três componentes próprios ao lado de `nikke.exe`:
+
+- `winhttp.dll`, um encaminhador que preserva as funções da biblioteca do Windows e carrega apenas o runtime fixo do projeto;
+- `NIKKEPTBR-Runtime.dll`, responsável por validar o cliente e apresentar traduções;
+- `NIKKEPTBR-Runtime.idx`, índice imutável com as correspondências autorizadas.
+
+Antes de permanecer ativo, o runtime confere a identidade do processo, do módulo e de dois pontos necessários do cliente. Uma divergência desativa a tradução e preserva o comportamento original. O projeto não substitui arquivos oficiais, não altera `GameAssembly.dll`, não contorna anticheat e não interfere em autenticação, rede, conta, monetização ou mecânicas.
+
+Veja a [Arquitetura](./docs/ARQUITETURA.md) para os limites e contratos técnicos.
+
+## 05 / VALIDAÇÃO DO INSTALADOR
+
+| Validação | Resultado |
 | --- | --- |
-| Cliente analisado | **150.6.9**, Unity **2021.3.56f2**, IL2CPP, Windows |
-| Inventário | **75 contêineres**, **724.181** linhas lógicas, zero estrutura desconhecida |
-| Catálogo privado | **564.723** entradas e **427.345** unidades traduzíveis únicas |
-| Tradução importada | **1.141** unidades únicas em **13 lotes** privados |
-| Primeiro domínio | Pré-instalação e protocolo: **641/641 unidades (100%)** |
-| Interface de sistema | **500** unidades importadas; domínio ainda em andamento |
-| Ocorrências cobertas | **3.751** no catálogo; **3.730** substituições na cópia isolada |
-| Construção isolada | **28** contêineres reabertos e validados; cliente intocado |
-| Cobertura integral | **0,27%** das unidades únicas traduzíveis |
-| Validação automática | **10 testes aprovados**, zero falha |
-| Build pública | **Não disponível** |
+| Pacote e contrato transacional | **18 cenários aprovados** |
+| Executável final em réplica descartável | **11 cenários aprovados** |
+| Instalação, verificação e repetição idempotente | **Aprovadas** |
+| Dano controlado e reparo com quarentena | **Aprovados** |
+| Colisão com componente desconhecido | **Recusada sem sobrescrita** |
+| Falha e retomada de transação | **Rollback e recuperação aprovados** |
+| Cliente real | **Runtime e cobertura visível aprovados** |
+| Remoção real | **3 arquivos próprios removidos, zero resíduo** |
+| Arquivos oficiais | **0 modificado** |
+| Reprodutibilidade | **2 construções finais idênticas** |
 
-Os arquivos traduzidos são reconstruídos e auditados apenas em cópias
-isoladas. Nenhum deles foi aplicado ao cliente instalado. As 21 ocorrências de
-diferença entre catálogo e construção pertencem a entradas deliberadamente
-preservadas, principalmente títulos musicais, e não são substituídas. A
-barreira atual é comprovar o papel dos sidecars de integridade e implementar
-um instalador gráfico único com atualização, restauração e rollback realmente
-reversíveis. Consulte o
-[status técnico](./docs/STATUS.md).
+A carga útil exata da versão final foi aceita no cliente real. O invólucro final foi recompilado depois dessa aceitação apenas para congelar a reprodutibilidade e completar avisos de licenciamento; a identidade do pacote, o bootstrap incorporado e o núcleo do instalador permaneceram idênticos. O executável resultante passou novamente por toda a matriz isolada.
 
-## 03 / COMO O MOD ESTÁ SENDO CONSTRUÍDO
+O arquivo ainda não possui certificado comercial de assinatura de código. O Windows pode mostrar **Fornecedor desconhecido** ou o SmartScreen. Baixe somente pelas páginas oficiais e compare o SHA-256 publicado na mesma Release.
 
-<p align="center">
-  <code>INVENTARIAR</code> →
-  <code>DECODIFICAR</code> →
-  <code>CATALOGAR</code> →
-  <code>TRADUZIR</code> →
-  <code>AUDITAR</code> →
-  <code>REMONTAR</code> →
-  <code>VALIDAR</code> →
-  <code>EMPACOTAR</code>
-</p>
+## 06 / ATUALIZAÇÕES DO JOGO
 
-A arquitetura confirmada não usa OCR, sobreposição de tela nem injeção em
-runtime. O fluxo trabalha diretamente com os bancos de idioma do cliente:
+O mod não modifica o sistema de atualização do NIKKE. Antes de uma atualização oficial, use **REMOVER TRADUÇÃO**, conclua a atualização pelo launcher e consulte a [matriz de compatibilidade](./docs/COMPATIBILIDADE.md) antes de reinstalar.
 
-1. reconhece versão e hashes antes de qualquer operação;
-2. extrai os contêineres `NKDB` para bancos SQLite em área privada;
-3. organiza textos repetidos em unidades únicas com contexto e estado editorial;
-4. importa lotes PT-BR de forma transacional;
-5. bloqueia regressões em placeholders, marcações e quebras de linha;
-6. remonta os arquivos em diretório isolado e verifica o round-trip;
-7. somente permitirá instalação quando integridade lateral, backup, transação,
-   rollback e remoção estiverem comprovados.
+Nenhum mod pode prometer compatibilidade absoluta com versões futuras ainda desconhecidas. O instalador recusa clientes não reconhecidos sem gravar o pacote. Conteúdo novo pode permanecer em inglês até uma versão compatível ser preparada.
 
-Uma atualização desconhecida do jogo deverá fazer o instalador **falhar de
-forma segura**, mantendo o cliente original intacto, em vez de aplicar arquivos
-incompatíveis. Veja a [arquitetura técnica](./docs/ARQUITETURA.md).
+## 07 / TRADUÇÃO EM JOGO
 
-## 04 / INSTALADOR PLANEJADO PARA WINDOWS
+As imagens abaixo são capturas reais do cliente com a integração PT-BR ativa.
 
-Quando existir uma build segura, o mod será distribuído como **um único
-executável gráfico**, sem depender de scripts soltos. O instalador deverá:
-
-- localizar automaticamente instalações compatíveis e aceitar seleção manual;
-- validar versão, hashes do cliente e integridade do conteúdo incorporado antes
-  de qualquer alteração;
-- preparar todas as mudanças em área temporária, criar backup verificável e
-  concluir a troca de forma transacional;
-- restaurar o estado anterior automaticamente se houver erro ou cancelamento;
-- mostrar progresso e resultado em linguagem clara, com detalhes técnicos
-  recolhíveis para diagnóstico;
-- reunir instalação, atualização, reparo, verificação e remoção na mesma
-  interface;
-- preservar arquivos alheios ao projeto e não usar telemetria nem downloads
-  durante a instalação.
-
-O arquivo exato de cada futura Release deverá passar por matriz automatizada e
-por um ciclo completo em cliente limpo: instalar, verificar, iniciar o jogo,
-inspecionar o log e remover restaurando o estado original. A Release também
-informará SHA-256, manifesto e versão do cliente validada.
-
-## 05 / ESCOPO DA TRADUÇÃO
-
-| Conteúdo | Tratamento previsto |
+| Identificação de personagem | Diálogo narrativo |
 | --- | --- |
-| História e eventos | Texto integral em PT-BR; contexto refinado gradualmente por revisão manual. |
-| Interface e sistemas | Menus, avisos, recompensas, loja, configurações e fluxos de conta. |
-| Personagens | Episódios, aconselhamento, perfis, mensagens e terminologia recorrente. |
-| Combate | Habilidades, efeitos, equipamentos, atributos, buffs, debuffs e tutoriais. |
-| Itens e coleções | Nomes, descrições, categorias, missões e progressão. |
-| Identidade da obra | Nomes próprios, marcas e títulos musicais preservados quando a tradução prejudicar a identificação. |
-| Integridade | IDs, tags, variáveis, Unicode, layout e atualizações não podem ser quebrados pela tradução. |
+| ![Andersen identificado como Vice-Chefe do Comando do Governo Central](./assets/screenshots/01-dialogo-ptbr.png) | ![Diálogo em português brasileiro com Andersen](./assets/screenshots/02-dialogo-ptbr.png) |
 
-## 06 / AUTORIA E TRANSPARÊNCIA
+## 08 / CONTEÚDO PÚBLICO E VERIFICAÇÃO
 
-**NIKKE PT-BR é um projeto criado, dirigido, mantido e validado por mim.** A
-definição do escopo, o padrão de qualidade, as decisões editoriais, os testes no
-cliente, a compatibilidade e a publicação permanecem sob minha responsabilidade.
+| Área | Conteúdo |
+| --- | --- |
+| [`docs`](./docs) | Arquitetura, compatibilidade, instalação, status, autoria e roadmap. |
+| [`assets`](./assets) | Identidade visual e capturas aprovadas para a página do projeto. |
+| [`release`](./release) | Manifesto público sem textos nem arquivos proprietários do jogo. |
+| [`CHANGELOG.md`](./CHANGELOG.md) | Histórico das versões distribuídas. |
 
-O **OpenAI Codex** integra o fluxo como ferramenta auxiliar. Ele foi utilizado
-para mapear os dados do cliente, desenvolver as automações, produzir as
-traduções PT-BR dos lotes do catálogo, aplicar correções orientadas pelo projeto,
-automatizar auditorias e acelerar a documentação. Eu defino os requisitos,
-identifico problemas durante o uso real, conduzo os testes, aprovo os resultados
-e participo da execução técnica; o Codex amplia a capacidade de trabalho em
-grande escala.
+Cada Release inclui o instalador, manifesto JSON e arquivo SHA-256. O repositório não publica bancos extraídos, textos integrais, chaves, executáveis ou outros arquivos proprietários do cliente.
 
-As métricas diferenciam tradução produzida, revisão manual e validação no jogo.
-Nenhum número publicado implica que todas as frases já foram revisadas por uma
-pessoa. Consulte [Autoria e processo](./docs/AUTORIA-E-PROCESSO.md).
+## 09 / AUTORIA E TRANSPARÊNCIA
 
-## 07 / PUBLICAÇÃO
+**NIKKE PT-BR é um projeto criado, dirigido, mantido e validado por mim.** A definição do escopo, do padrão de qualidade, dos testes no cliente, da compatibilidade e da publicação permanece sob minha responsabilidade.
 
-- Projeto comunitário para **PC / Windows**, gratuito e sem paywall.
-- O repositório público contém progresso e documentação; não contém textos
-  extraídos, bancos proprietários nem uma build disfarçada.
-- Quando existir uma versão segura, o download ficará em **Releases** como um
-  instalador gráfico único, acompanhado por hash, manifesto, compatibilidade e
-  instruções de recuperação.
-- O botão **Code → Download ZIP** não é o download do mod.
-- GODDESS OF VICTORY: NIKKE e seus elementos pertencem aos respectivos titulares.
-- O projeto é independente e não possui afiliação ou endosso oficial.
+O **OpenAI Codex** foi utilizado como ferramenta auxiliar na tradução em escala, engenharia, automação, auditorias, testes e documentação. A base produzida com auxílio de IA não é apresentada como revisão editorial humana integral.
 
-O avanço pode ser acompanhado no [Roadmap](./docs/ROADMAP.md).
+Os detalhes estão em [Autoria e processo](./docs/AUTORIA-E-PROCESSO.md).
+
+## 10 / RELATOS E DIREITOS
+
+- Erros de tradução, instalação ou compatibilidade podem ser relatados pelas [Issues](https://github.com/kacksdev/nikke-ptbr/issues).
+- Vulnerabilidades devem ser enviadas pelo [relato privado de segurança](https://github.com/kacksdev/nikke-ptbr/security/advisories/new).
+- GODDESS OF VICTORY: NIKKE, personagens, nomes, artes e demais conteúdos pertencem aos respectivos titulares.
+- O mod é gratuito, comunitário e não representa uma tradução oficial.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/ink-rule-dark.svg" />
@@ -168,4 +151,4 @@ O avanço pode ser acompanhado no [Roadmap](./docs/ROADMAP.md).
   <img src="./assets/ink-rule-light.svg" alt="" width="100%" />
 </picture>
 
-<p align="center"><code>KACKS / TRADUÇÃO COMUNITÁRIA / BRASIL</code></p>
+<p align="center"><code>KACKS / COMMUNITY TRANSLATION / BRASIL</code></p>

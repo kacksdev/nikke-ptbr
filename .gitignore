@@ -1,0 +1,14 @@
+# Pacotes e binários de distribuição permanecem fora do repositório.
+*.7z
+*.dll
+*.exe
+*.pdb
+*.zip
+
+# Artefatos locais e privados.
+private/
+work/
+
+# Arquivos gerados pelo sistema operacional.
+.DS_Store
+Thumbs.db
