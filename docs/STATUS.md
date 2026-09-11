@@ -1,8 +1,8 @@
 # Status técnico
 
-Atualizado em 10 de setembro de 2026.
+Atualizado em 11 de setembro de 2026.
 
-## Versão preparada
+## Versão publicada
 
 | Item | Estado |
 | --- | --- |
@@ -37,7 +37,8 @@ Nenhum arquivo oficial é substituído. O runtime valida o cliente e falha de fo
 | --- | --- |
 | Pacote transacional | 18/18 |
 | Executável final em réplica | 11/11 |
-| Suíte atual | 116/116 |
+| Suíte da versão publicada | 116/116 |
+| Testes públicos do instalador | 23/23 |
 | Construções finais consecutivas | Idênticas byte a byte |
 | Instalação real | Aprovada |
 | Inicialização pelo launcher | Aprovada |
@@ -62,4 +63,6 @@ A carga útil exata da versão final foi aceita no cliente real. Depois dessa pr
 
 ## Publicação
 
-Os artefatos preparados para a versão incluem instalador, SHA-256, manifesto e documentação. A página pública deve sempre indicar o cliente validado e separar cobertura técnica de revisão editorial.
+A versão `0.1.0` está disponível na [Release oficial do GitHub](https://github.com/kacksdev/nikke-ptbr/releases/tag/v0.1.0) e na [página oficial do GameBanana](https://gamebanana.com/mods/715729). Os dois downloads públicos foram conferidos por SHA-256 contra os artefatos aprovados.
+
+O código autoral da interface do instalador, do núcleo transacional e dos respectivos testes está publicado para auditoria. Catálogo, carga útil, binários compilados e materiais proprietários do cliente permanecem fora do repositório.

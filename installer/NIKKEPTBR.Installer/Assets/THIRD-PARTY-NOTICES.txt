@@ -1,0 +1,51 @@
+NIKKE PT-BR installer third-party notices
+
+Python 3.10
+Copyright (c) 2001-2026 Python Software Foundation.
+Distributed under the Python Software Foundation License Version 2.
+https://www.python.org/psf/license/
+
+PyInstaller 6.22.2
+Copyright (c) 2010-2026 PyInstaller Development Team.
+Distributed under GPL-2.0-or-later with the PyInstaller bootloader exception.
+https://pyinstaller.org/
+
+MinHook 1.3.4
+Commit c3fcafdc10146beb5919319d0683e44e3c30d537.
+Copyright (C) 2009-2017 Tsuda Kageyu.
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice,
+   this list of conditions and the following disclaimer.
+2. Redistributions in binary form must reproduce the above copyright notice,
+   this list of conditions and the following disclaimer in the documentation
+   and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.
+
+Portions of MinHook include Hacker Disassembler Engine 32/64 C.
+Copyright (c) 2008-2009, Vyacheslav Patkov.
+All rights reserved. These portions use the same BSD 2-Clause conditions and
+disclaimer reproduced above.
+
+MinHook source and complete license:
+https://github.com/TsudaKageyu/minhook/tree/v1.3.4
+
+The installer interface uses Microsoft .NET Framework components supplied by Windows.
+
+GODDESS OF VICTORY: NIKKE and its artwork belong to their respective rights holders.
+This free community translation is independent and is not affiliated with or endorsed by
+SHIFT UP, Level Infinite, Proxima Beta, or the official game publishers.

@@ -1,14 +1,27 @@
-# Pacotes e binários de distribuição permanecem fora do repositório.
+# Compilação, caches e ambientes locais.
+**/bin/
+**/obj/
+**/__pycache__/
+*.pyc
+.tools/
+.vs/
+.idea/
+
+# Pacotes, binários e artefatos de distribuição.
 *.7z
 *.dll
 *.exe
 *.pdb
 *.zip
+dist/
+installer/NIKKEPTBR.Installer/Payload/
 
-# Artefatos locais e privados.
+# Evidências e dados privados do workspace.
 private/
 work/
 
-# Arquivos gerados pelo sistema operacional.
+# Temporários e arquivos do sistema operacional.
+*.log
+*.tmp
 .DS_Store
 Thumbs.db
