@@ -7,6 +7,10 @@
 <h1 align="center">GODDESS OF VICTORY: NIKKE PT-BR / PC</h1>
 
 <p align="center">
+  <a href="https://github.com/kacksdev/nikke-ptbr/actions/workflows/public-source.yml"><img src="https://github.com/kacksdev/nikke-ptbr/actions/workflows/public-source.yml/badge.svg" alt="Validação pública" /></a>
+</p>
+
+<p align="center">
   <strong>TRADUÇÃO COMUNITÁRIA / BETA / WINDOWS X64</strong>
 </p>
 
@@ -53,7 +57,8 @@ O projeto é criado, dirigido, mantido e validado por **Kacks**. Não possui afi
 | Apontamentos editoriais preservados | **1.689** |
 | Pacote transacional | **18/18 verificações** |
 | Executável final | **11/11 verificações** |
-| Suíte atual do projeto | **116/116 testes** |
+| Suíte da versão publicada | **116/116 testes** |
+| Testes públicos do instalador | **23/23 aprovados** |
 
 Esses números descrevem cobertura e integridade técnica. Eles não significam que 429.498 frases receberam revisão humana individual. Os apontamentos editoriais permanecem registrados para uma etapa futura, sem invalidar o funcionamento da primeira versão.
 
@@ -113,22 +118,31 @@ Nenhum mod pode prometer compatibilidade absoluta com versões futuras ainda des
 
 ## 07 / TRADUÇÃO EM JOGO
 
-As imagens abaixo são capturas reais do cliente com a integração PT-BR ativa.
+As imagens abaixo são capturas reais do cliente com a integração PT-BR ativa. Elas demonstram lobby, personagem, narrativa, escolhas, campanha, progressão e inventário.
 
-| Identificação de personagem | Diálogo narrativo |
+| Lobby e personagem | Diálogo e cena de história |
 | --- | --- |
-| ![Andersen identificado como Vice-Chefe do Comando do Governo Central](./assets/screenshots/01-dialogo-ptbr.png) | ![Diálogo em português brasileiro com Andersen](./assets/screenshots/02-dialogo-ptbr.png) |
+| ![Lobby, navegação e objetivos em português brasileiro](./assets/screenshots/01-lobby-ptbr.webp) | ![Diálogo narrativo em português brasileiro](./assets/screenshots/03-dialogo-narrativo-ptbr.webp) |
+| ![Perfil de personagem, atributos e ações em português brasileiro](./assets/screenshots/02-perfil-personagem-ptbr.webp) | ![Cena de história traduzida para português brasileiro](./assets/screenshots/04-cena-historia-ptbr.webp) |
 
-## 08 / CONTEÚDO PÚBLICO E VERIFICAÇÃO
-
-| Área | Conteúdo |
+| Escolhas e campanha | Progressão e inventário |
 | --- | --- |
+| ![Escolhas de diálogo em português brasileiro](./assets/screenshots/05-escolhas-dialogo-ptbr.webp) | ![Progressão e recompensas em português brasileiro](./assets/screenshots/07-progressao-recompensas-ptbr.webp) |
+| ![Campanha, formação e preparação de batalha](./assets/screenshots/06-campanha-formacao-ptbr.webp) | ![Inventário e descrição de item em português brasileiro](./assets/screenshots/08-inventario-item-ptbr.webp) |
+
+## 08 / CÓDIGO PÚBLICO E VERIFICAÇÃO
+
+| Área | Conteúdo público |
+| --- | --- |
+| [`installer`](./installer) | Interface WPF e núcleo transacional usados pelo instalador gráfico. |
+| [`tools`](./tools) | Contrato do pacote, bootstrap determinístico e auditoria do repositório. |
+| [`tests`](./tests) | Testes automatizados do pacote, das transações e da interface com o núcleo. |
 | [`docs`](./docs) | Arquitetura, compatibilidade, instalação, status, autoria e roadmap. |
 | [`assets`](./assets) | Identidade visual e capturas aprovadas para a página do projeto. |
 | [`release`](./release) | Manifesto público sem textos nem arquivos proprietários do jogo. |
 | [`CHANGELOG.md`](./CHANGELOG.md) | Histórico das versões distribuídas. |
 
-Cada Release inclui o instalador, manifesto JSON e arquivo SHA-256. O repositório não publica bancos extraídos, textos integrais, chaves, executáveis ou outros arquivos proprietários do cliente.
+Cada Release inclui o instalador, manifesto JSON e arquivo SHA-256. O repositório publica o código autoral necessário para auditar a interface e a segurança transacional, mas não distribui o catálogo, a carga útil, bancos extraídos, textos integrais, chaves, executáveis ou arquivos proprietários do cliente. Consulte [Compilação e limites do código público](./docs/COMPILACAO.md).
 
 ## 09 / AUTORIA E TRANSPARÊNCIA
 

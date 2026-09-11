@@ -53,13 +53,13 @@ O roadmap separa cobertura técnica, revisão editorial, integração, instalaç
 
 ## Fase 5: primeira publicação
 
-**Estado: em preparação**
+**Estado: concluída em 11 de setembro de 2026**
 
-- documentação pública atualizada;
-- manifesto e checksums preparados;
-- Release do GitHub preparada em rascunho;
-- página do GameBanana mantida privada até revisão final;
-- publicação simultânea somente após autorização explícita.
+- documentação pública revisada;
+- Release `v0.1.0` publicada no GitHub com instalador, manifesto e checksum;
+- distribuição alternativa publicada no GameBanana;
+- hashes dos downloads públicos conferidos contra os artefatos aprovados;
+- código autoral do instalador e do núcleo transacional disponibilizado para auditoria.
 
 ## Fase 6: manutenção e maturidade editorial
 

@@ -42,3 +42,9 @@ O instalador não baixa componentes nem envia telemetria durante a operação.
 | OpenAI Codex | Tradução em escala, engenharia, auditoria, testes e documentação sob direção do mantenedor. |
 | Git e GitHub | Versionamento, Issues, segurança, manifesto e Releases. |
 | GameBanana | Distribuição alternativa e feedback da comunidade. |
+
+## Código público
+
+O repositório público contém a interface WPF do instalador, o núcleo transacional em Python, o empacotador determinístico, testes automatizados e a validação contínua. O catálogo PT-BR, a carga útil compilada, binários e dados obtidos do cliente não são publicados.
+
+Consulte [Compilação e limites do código público](./COMPILACAO.md) para reproduzir a validação disponível sem material privado.

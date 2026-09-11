@@ -39,6 +39,6 @@ A versão `0.1.0 beta` é uma primeira versão funcional de ampla cobertura. A v
 
 ## Política de transparência
 
-O repositório publica métricas agregadas, documentação, manifesto e limitações. Bancos extraídos, textos integrais, chaves, dumps e arquivos proprietários do jogo não são distribuídos.
+O repositório publica métricas agregadas, documentação, manifesto, limitações e o código autoral necessário para auditar a interface e a segurança transacional do instalador. Bancos extraídos, catálogo, carga útil, textos integrais, chaves, dumps, binários e arquivos proprietários do jogo não são distribuídos.
 
 Cada versão declara o cliente validado e não promete compatibilidade com atualizações futuras desconhecidas.
